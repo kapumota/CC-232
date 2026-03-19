@@ -1,4 +1,4 @@
-### Proyecto 0 en  C++17 para DSA
+### Proyecto 0 para CC232
 
 Proyecto independiente para arrancar un curso de estructuras de datos y algoritmos en C++17. Su objetivo no es enseñar muchas estructuras todavía, sino fijar el flujo de trabajo mínimo:
 
