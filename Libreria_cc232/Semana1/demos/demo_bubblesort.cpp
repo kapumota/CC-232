@@ -9,7 +9,7 @@ void printArray(const int A[], int n) {
         std::cout << A[i] << (i + 1 < n ? ", " : "");
     }
     std::cout << "]";
-}
+  }
 }
 
 int main() {
