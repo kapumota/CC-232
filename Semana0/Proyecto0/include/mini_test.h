@@ -15,7 +15,7 @@ inline void expect(bool condition, const std::string& message) {
 }
 
 inline void pass() {
-    std::cout << "Todos los test fallaron.\n";
+    std::cout << "Todos los test pasaron.\n";
 }
 
 }  // namespace cc232::test
