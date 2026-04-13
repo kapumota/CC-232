@@ -16,5 +16,5 @@ int main() {
     for (int x : cc232::to_vector(lista)) {
         std::cout << x << ' ';
     }
-    std::cout << "\nremoved = " << removed << "\n";
+    std::cout << "\nRemovido = " << removed << "\n";
 }
