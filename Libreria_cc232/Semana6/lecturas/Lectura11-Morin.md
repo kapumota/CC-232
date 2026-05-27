@@ -1,4 +1,4 @@
-### Lectura 11: Morin - Treaps, heaps y colas de prioridad
+### Treaps, heaps y colas de prioridad - Morin
 
 ### Resumen
 
