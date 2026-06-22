@@ -28,9 +28,7 @@ El énfasis de esta actividad está en explicar no solo qué operación se ejecu
 Revisa como mínimo:
 
 * `Semana8/README.md`
-* `Semana8/lecturas/Notas.md`
-* `Semana8/lecturas/GuiaHashing.md`
-* `Semana8/lecturas/PreguntasOrales.md`
+* `Semana8/lecturas/Lectura14-Morin.md`
 * `Semana8/include/Dictionary.h`
 * `Semana8/include/Entry.h`
 * `Semana8/include/ArrayStack.h`
