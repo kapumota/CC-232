@@ -93,7 +93,7 @@ Revisa y ejecuta:
 ```
 
 6. No basta con ejecutar el programa. Debes poder explicar por qué una operación conserva la tabla en estado válido y por qué su costo es esperado, amortizado o de peor caso.
-7. Cuando fuerces colisiones, no asumas que las claves `0, 8, 16, 24` colisionan si la función hash no es identidad. Si el código usa mezcla hash, debes verificar la cubeta real o construir claves colisionantes mediante un pequeño experimento.
+7. Cuando fuerces colisiones, no asumas que las claves `0, 8, 16, 24` colisionan si la función hash no es identidad. Si el código usa mezcla hash, debes verificar el bucket real o construir claves colisionantes mediante un pequeño experimento.
 
 #### Bloque 1 - Diagnóstico inicial de la Semana 8
 
@@ -157,7 +157,7 @@ Entrega en este bloque:
 * Una tabla conceptual con las columnas: concepto, definición, archivo relacionado y ejemplo.
 * Una explicación de máximo 12 líneas sobre por qué hashing no reemplaza completamente a los árboles balanceados.
 
-#### Bloque 3 - Chaining: cubetas, colisiones y longitud máxima
+#### Bloque 3 - Chaining: buckets, colisiones y longitud máxima
 
 Revisa:
 
@@ -176,28 +176,28 @@ Construye una tabla con estas columnas:
 
 * Operación
 * Clave
-* Cubeta calculada
-* Tamaño de la cubeta antes
-* Tamaño de la cubeta después
+* Bucket calculado
+* Tamaño del bucket antes
+* Tamaño del bucket después
 * Colisión observada
 * `loadFactor()`
 * `longestBucket()`
 
 Responde:
 
-1. ¿Qué diferencia hay entre el arreglo principal y las cubetas?
+1. ¿Qué diferencia hay entre el arreglo principal y los buckets?
 2. ¿Por qué chaining puede almacenar más elementos que la cantidad de posiciones del arreglo principal?
-3. ¿Qué significa que una cubeta crezca demasiado?
+3. ¿Qué significa que un bucket crezca demasiado?
 4. ¿Por qué `longestBucket()` es una métrica importante?
 5. ¿En qué caso la búsqueda en chaining deja de parecerse a `O(1)` esperado?
-6. ¿Qué costo tiene recorrer una cubeta de longitud `k`?
+6. ¿Qué costo tiene recorrer un bucket de longitud `k`?
 7. ¿Qué parte del costo depende de la función hash y qué parte depende de la distribución de claves?.
 
 Entrega en este bloque:
 
 * Salida relevante de `demo_chained.cpp`.
 * Tabla de operaciones.
-* Dibujo de una tabla hash con al menos 8 cubetas y 10 claves.
+* Dibujo de una tabla hash con al menos 8 buckets y 10 claves.
 * Explicación breve de costo esperado y peor caso.
 
 #### Bloque 4 - Colisiones controladas sin asumir hash de identidad
@@ -208,7 +208,7 @@ Revisa:
 * `Semana8/demos/demo_hash_functions.cpp`
 * `Semana8/demos/demo_collision_strategies.cpp`
 
-Modifica o crea una demostración auxiliar que busque claves enteras que caigan en la misma cubeta para una capacidad fija `m`. No asumas que `x % m` es la cubeta final si antes se aplica una mezcla hash.
+Modifica o crea una demostración auxiliar que busque claves enteras que caigan en el mimso bucket para una capacidad fija `m`. No asumas que `x % m` es el bucket final si antes se aplica una mezcla hash.
 
 Puedes usar una función auxiliar con esta idea:
 
@@ -228,7 +228,7 @@ Responde:
 
 1. ¿Por qué `0, 8, 16, 24` solo garantiza colisión si la función hash efectiva es `h(x) = x mod m`?
 2. ¿Qué ocurre si antes se aplica una mezcla como `hashCode(x)`?
-3. ¿Qué claves encontraste para una misma cubeta con capacidad `8` o `16`?
+3. ¿Qué claves encontraste para un mismo bucket con capacidad `8` o `16`?
 4. ¿Cómo cambia el experimento si usas cadenas en lugar de enteros?
 5. ¿Por qué este bloque es importante para defender evidencia experimental honesta?.
 
@@ -236,7 +236,7 @@ Entrega en este bloque:
 
 * Código de la función auxiliar.
 * Lista de claves encontradas.
-* Tabla con clave, valor hash normalizado y cubeta.
+* Tabla con clave, valor hash normalizado y bucket.
 * Evidencia de que esas claves sí producen colisiones en tu ejecución.
 
 #### Bloque 5 - Linear probing: estados, sondeo y tombstones
@@ -396,8 +396,8 @@ Para cada conjunto, mide o reporta:
 
 * cantidad de claves,
 * capacidad de tabla,
-* número de cubetas usadas,
-* cubeta más cargada,
+* número de buckets usados,
+* bucket más cargado,
 * colisiones observadas,
 * comentario sobre la distribución.
 
