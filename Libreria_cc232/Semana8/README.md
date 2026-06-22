@@ -2,10 +2,10 @@
 
 Esta carpeta continúa el trabajo de `Semana5`, `Semana6` y `Semana7` dentro de `Libreria_cc232`. El objetivo principal es estudiar cómo implementar diccionarios no ordenados mediante hashing, separando con claridad cinco ideas que suelen confundirse:
 
-* una **interfaz de diccionario** define operaciones como insertar, buscar y eliminar;
-* una **función hash** transforma claves en posiciones de una tabla;
-* una **estrategia de colisiones** decide qué ocurre cuando dos claves llegan a la misma posición;
-* el **factor de carga** controla cuándo la tabla empieza a degradarse;
+* una **interfaz de diccionario** define operaciones como insertar, buscar y eliminar,
+* una **función hash** transforma claves en posiciones de una tabla,
+* una **estrategia de colisiones** decide qué ocurre cuando dos claves llegan a la misma posición,
+* el **factor de carga** controla cuándo la tabla empieza a degradarse,
 * el **rehashing** reconstruye la tabla para recuperar eficiencia esperada.
 
 La semana se organiza como una continuación natural de las semanas anteriores:
@@ -46,23 +46,23 @@ La carpeta incluye los siguientes componentes:
 
 Desde `Semana5` se retoman estas ideas:
 
-* búsqueda en estructuras lineales y enlazadas;
-* diferencias entre acceso secuencial y acceso directo;
-* árboles binarios de búsqueda como diccionarios ordenados;
+* búsqueda en estructuras lineales y enlazadas,
+* diferencias entre acceso secuencial y acceso directo,
+* árboles binarios de búsqueda como diccionarios ordenados,
 * complejidad dependiente de la altura en un BST.
 
 Desde `Semana6` se retoman estas ideas:
 
-* comparación entre representación e interfaz;
-* uso de estructuras basadas en arreglos;
-* análisis de operaciones dominantes;
+* comparación entre representación e interfaz,
+* uso de estructuras basadas en arreglos,
+* análisis de operaciones dominantes,
 * medición práctica mediante demos y pruebas.
 
 Desde `Semana7` se retoman estas ideas:
 
-* comparación entre BST común, AVL y Red-Black Tree;
-* garantía `O(log n)` mediante invariantes estructurales;
-* defensa de decisiones de diseño;
+* comparación entre BST común, AVL y Red-Black Tree,
+* garantía `O(log n)` mediante invariantes estructurales,
+* defensa de decisiones de diseño,
 * contraste entre eficiencia garantizada y eficiencia esperada.
 
 La relación conceptual puede leerse así:
@@ -82,11 +82,11 @@ Semana8
 
 En C++ conviene distinguir tres niveles:
 
-* una interfaz de diccionario describe operaciones;
-* una tabla hash es una representación concreta;
+* una interfaz de diccionario describe operaciones,
+* una tabla hash es una representación concreta,
 * una política de colisiones forma parte del diseño interno de esa representación.
 
-Por eso, no se debe decir simplemente que “hashing es un diccionario”. Lo correcto es decir que una tabla hash es una forma de implementar diccionarios, mapas o conjuntos no ordenados.
+Por eso, no se debe decir simplemente que "hashing es un diccionario". Lo correcto es decir que una tabla hash es una forma de implementar diccionarios, mapas o conjuntos no ordenados.
 
 En esta entrega aparecen dos usos pedagógicos:
 
@@ -113,7 +113,7 @@ La separación intencional es la siguiente:
 * `RobinHoodHashTable` intenta equilibrar las distancias de búsqueda intercambiando elementos según su distancia al hash original.
 * `HashtableOA` conserva una interfaz de diccionario `key -> value` y permite discutir `put`, `get` y `remove` con eliminación perezosa.
 
-Esta diversidad permite observar que todas son “tablas hash”, pero no tienen el mismo comportamiento ante carga alta, colisiones, borrados o claves adversariales.
+Esta diversidad permite observar que todas son "tablas hash", pero no tienen el mismo comportamiento ante carga alta, colisiones, borrados o claves adversariales.
 
 #### Organización práctica
 
@@ -122,15 +122,13 @@ Además de los headers, la carpeta contiene:
 * `demos/`: programas pequeños para ejecutar y observar cada estructura.
 * `pruebas_publicas/`: pruebas públicas esperadas para validar comportamiento básico.
 * `pruebas_internas/`: pruebas adicionales de cobertura, colisiones, rehashing y comparación contra STL.
-* `lecturas/Notas.md`: resumen conceptual de hashing y tablas hash.
-* `lecturas/GuiaHashing.md`: guía avanzada de funciones hash, carga, colisiones y estrategias.
-* `lecturas/PreguntasOrales.md`: banco de preguntas para sustentación.
+* `lecturas/Lectura14-Morin.md`: resumen conceptual de hashing y tablas hash.
 * `Actividad8-CC232.md`: guía de actividad para ejecutar demos y sustentar decisiones.
 * `Ejercicios8-CC232.md`: espacio para ejercicios de la semana.
 
 La estructura base se conserva: no se agregan carpetas nuevas fuera de las usadas por la organización de la semana.
 
-#### Demos incluidos
+#### Demostraciones incluidos
 
 Los demos principales son:
 
@@ -219,7 +217,7 @@ El nombre de la carpeta `build-debug` es solo una convención. No activa Debug p
 
 Para compilar realmente en modo Debug:
 
-* en Linux hay que pasar `-DCMAKE_BUILD_TYPE=Debug`;
+* en Linux hay que pasar `-DCMAKE_BUILD_TYPE=Debug`,
 * en Windows con Visual Studio hay que usar `--config Debug`.
 
 ### Linux
@@ -267,7 +265,7 @@ cmake --build build-debug
 ctest --test-dir build-debug -R semana8 --output-on-failure
 ```
 
-#### 4. Ejecutar demos paso a paso
+#### 4. Ejecutar demostraciones paso a paso
 
 ##### Chaining
 
