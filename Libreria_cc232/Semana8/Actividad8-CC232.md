@@ -275,7 +275,7 @@ Responde:
 4. ¿Por qué `loadFactor()` y `occupiedFactor()` pueden divergir después de muchas eliminaciones?
 5. ¿Qué problema aparece si se acumulan demasiados tombstones?
 6. ¿Cuándo debe hacerse rehashing por carga ocupada aunque haya pocos elementos activos?
-7. ¿Qué costo tiene una búsqueda fallida cuando hay clustering?
+7. ¿Qué costo tiene una búsqueda fallida cuando hay clustering?.
 
 Entrega en este bloque:
 
@@ -307,8 +307,7 @@ Responde:
 4. ¿Qué debe devolver `get(k)` si la clave existe?
 5. ¿Qué debe ocurrir con `remove(k)` si la clave no existe?
 6. ¿Qué política usa la implementación cuando se intenta insertar una clave repetida?
-7. ¿Por qué una interfaz `put`, `get`, `remove` permite separar el uso del diccionario de su implementación interna?
-8. ¿Cómo se relaciona esta parte con el ADT diccionario de Deng?
+7. ¿Por qué una interfaz `put`, `get`, `remove` permite separar el uso del diccionario de su implementación interna?.
 
 Entrega en este bloque:
 
