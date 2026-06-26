@@ -1,0 +1,40 @@
+cmake_minimum_required(VERSION 3.20)
+
+project(Semana12ConsultasRango LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+add_library(semana12_consultas_rango INTERFACE)
+target_include_directories(semana12_consultas_rango INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+function(add_semana12_executable target source)
+    add_executable(${target} ${source})
+    target_link_libraries(${target} PRIVATE semana12_consultas_rango)
+    target_compile_options(${target} PRIVATE -Wall -Wextra -pedantic)
+endfunction()
+
+add_semana12_executable(sem12_demo_prefix_difference demos/demo_prefix_difference.cpp)
+add_semana12_executable(sem12_demo_fenwick demos/demo_fenwick.cpp)
+add_semana12_executable(sem12_demo_segment_tree demos/demo_segment_tree.cpp)
+add_semana12_executable(sem12_demo_lazy_propagation demos/demo_lazy_propagation.cpp)
+add_semana12_executable(sem12_demo_sparse_table demos/demo_sparse_table.cpp)
+add_semana12_executable(sem12_demo_benchmark demos/demo_benchmark.cpp)
+
+include(CTest)
+if(BUILD_TESTING)
+    add_semana12_executable(sem12_test_public pruebas_publicas/test_public_week12.cpp)
+    add_semana12_executable(sem12_test_fenwick pruebas_internas/test_fenwick.cpp)
+    add_semana12_executable(sem12_test_segment_tree pruebas_internas/test_segment_tree.cpp)
+    add_semana12_executable(sem12_test_lazy_segment_tree pruebas_internas/test_lazy_segment_tree.cpp)
+    add_semana12_executable(sem12_test_sparse_table pruebas_internas/test_sparse_table.cpp)
+    add_semana12_executable(sem12_test_range_query_comparison pruebas_internas/test_range_query_comparison.cpp)
+
+    add_test(NAME semana12_public COMMAND sem12_test_public)
+    add_test(NAME semana12_fenwick COMMAND sem12_test_fenwick)
+    add_test(NAME semana12_segment_tree COMMAND sem12_test_segment_tree)
+    add_test(NAME semana12_lazy_segment_tree COMMAND sem12_test_lazy_segment_tree)
+    add_test(NAME semana12_sparse_table COMMAND sem12_test_sparse_table)
+    add_test(NAME semana12_range_query_comparison COMMAND sem12_test_range_query_comparison)
+endif()
