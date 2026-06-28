@@ -2,7 +2,7 @@
 
 #### Proposito
 
-Estos experimentos muestran que el rendimiento de un programa depende de la eleccion del algoritmo, de la estructura de datos, de la correctitud del codigo y de la calidad de las pruebas.
+Estos experimentos muestran que el rendimiento de un programa depende de la eleccion del algoritmo, de la estructura de datos, de la correctitud del código y de la calidad de las pruebas.
 
 La regla principal es:
 
