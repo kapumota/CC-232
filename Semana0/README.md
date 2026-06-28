@@ -72,16 +72,6 @@ rm -rf build_semana0
 rm -rf Semana0/Proyecto0/Testing
 rm -rf Semana0/ejercicios0_out
 ```
-
-#### Reglas de estilo para Semana0
-
-1. Los documentos usan titulos con `###` y subtitulos con `####`.
-2. Los comentarios de codigo deben estar en español.
-3. Las cadenas de texto visibles para el usuario deben estar en español.
-4. Las firmas de funciones deben mantenerse en ingles.
-5. No se deben usar guiones largos, separadores decorativos ni emoticones.
-6. Cada cambio debe realizarse en una rama y validarse antes del commit.
-
 #### Temas obligatorios
 
 1. Flujo basico con Git.
