@@ -61,7 +61,7 @@ ctest --test-dir build_semana0_san --output-on-failure
 
 Las pruebas normales deben pasar incluso con sanitizers activados.
 
-#### Demos intencionalmente incorrectos
+#### Demostraciones intencionalmente incorrectas
 
 Esta fase agrega tres demos diseñados para fallar cuando se ejecutan manualmente con sanitizers.
 
@@ -71,7 +71,7 @@ Esta fase agrega tres demos diseñados para fallar cuando se ejecutan manualment
 ./build_semana0_san/demo_iterator_invalid
 ```
 
-Estos demos no se registran como pruebas de CTest porque su propósito es producir reportes de error.
+Estas demostraciones no se registran como pruebas de CTest porque su propósito es producir reportes de error.
 
 #### Flujo correcto de uso
 
@@ -81,7 +81,7 @@ El flujo recomendado es:
 2. Ejecutar pruebas normales.
 3. Compilar en modo Debug con sanitizers.
 4. Ejecutar pruebas con sanitizers.
-5. Ejecutar demos de error de forma manual.
+5. Ejecutar demostraciones de error de forma manual.
 6. Leer el reporte del sanitizer.
 7. Corregir el error.
 8. Repetir la validación.
