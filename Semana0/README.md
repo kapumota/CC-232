@@ -124,10 +124,10 @@ La Fase 0.2 agrega lectura de C++17 mínimo y demostraciones pequeñas. No modif
 
 Esta fase agrega una lectura y ejemplos mínimos de templates. El objetivo es preparar al estudiante para estructuras genéricas como arreglos, pilas, colas, heaps, árboles, tablas hash, segment trees y B-Trees.
 
-### Fase 0.5: Sanitizers
+##### Fase 0.5: Sanitizers
 
 Esta fase agrega ASan y UBSan como herramientas obligatorias de depuración para detectar errores de memoria y comportamiento indefinido.
 
-### Fase 0.6: STL, iteradores y complejidad
+#### Fase 0.6: STL, iteradores y complejidad
 
 Esta fase organiza el uso de STL, iteradores, adaptadores, algoritmos estándar e invalidación de iteradores antes de iniciar estructuras de datos propias.
