@@ -19,7 +19,7 @@ void printNumbers(const cc232::SimpleArray<int>& values) {
 } // namespace
 
 int main() {
-    std::cout << "Demostracion de templates en Semana0\n";
+    std::cout << "Demostracion de templates elemental\n";
 
     const int bestNumber = cc232::maximum(10, 7);
     const std::string bestWord = cc232::maximum(std::string{"arbol"}, std::string{"grafo"});
