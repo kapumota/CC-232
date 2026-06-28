@@ -167,4 +167,4 @@ Antes de pasar a la actividad, responde:
 1. ¿Por qué `const T&` evita copias innecesarias?
 2. ¿Por qué una estructura genérica debe tener `operator[]` constante y no constante?
 3. ¿Qué requisito debe cumplir un tipo `T` para usarse con `maximum`?
-4. ¿Por qué los templates suelen definirse en headers?
+4. ¿Por qué los templates suelen definirse en headers?.
