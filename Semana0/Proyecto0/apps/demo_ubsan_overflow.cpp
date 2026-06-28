@@ -2,7 +2,7 @@
 #include <limits>
 
 int main() {
-    std::cout << "Demo UBSan: desbordamiento de entero con signo\n";
+    std::cout << "Demostracion UBSan: desbordamiento de entero con signo\n";
 
     int value = std::numeric_limits<int>::max();
 
