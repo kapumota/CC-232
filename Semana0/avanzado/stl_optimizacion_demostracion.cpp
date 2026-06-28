@@ -16,6 +16,7 @@
 #include <utility>
 #include <vector>
 
+// Benchmark que compara 10 patrones STL críticos para rendimiento
 using Clock = std::chrono::high_resolution_clock;
 using Microseconds = std::chrono::duration<double, std::micro>;
 
