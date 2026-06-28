@@ -1,172 +1,235 @@
-### Actividad0-CC232: Preparación técnica del curso
+### Actividad0-CC232: Prerrequisito técnico del curso
 
-#### Objetivo
+#### Propósito
 
-Preparar el entorno de trabajo para CC232 y validar que el estudiante puede compilar, probar, ejecutar y limpiar un proyecto C++17 con CMake y CTest.
+Esta actividad cierra Semana0 como prerrequisito formal de CC232.
 
-#### Contexto
+El objetivo es verificar que el estudiante puede compilar, probar, depurar, usar templates, ejecutar sanitizers, realizar una medición simple y entregar un reporte corto antes de iniciar las estructuras de datos principales.
 
-Durante el curso se implementaran estructuras de datos con C++17. Antes de modificar arreglos, listas, árboles, tablas hash o grafos, cada estudiante debe demostrar que domina el flujo técnico mínimo.
+#### Resultado esperado
 
-#### Trabajo individual
+Al terminar la actividad, el estudiante debe entregar evidencia de que puede:
 
-La actividad es individual. Cada estudiante debe ejecutar los comandos, revisar la salida y entregar un reporte breve.
+1. Configurar y compilar `Proyecto0` con CMake.
+2. Ejecutar pruebas con CTest.
+3. Implementar una función template sencilla.
+4. Implementar o completar `SimpleArray<T>`.
+5. Ejecutar ASan sobre un bug intencional.
+6. Ejecutar UBSan sobre un bug intencional.
+7. Ejecutar un benchmark simple.
+8. Escribir un reporte breve y verificable.
 
-#### Parte 1: Exploración de la Semana0
+#### Reglas generales
 
-Desde la raiz del repositorio, listar la estructura principal:
+1. El trabajo debe compilar en C++17.
+2. Los comandos deben ejecutarse desde la raíz del repositorio.
+3. No se deben subir carpetas de compilación.
+4. No se deben modificar archivos generados por CMake.
+5. Todo cambio debe estar justificado en el reporte.
+6. El reporte debe ser breve, técnico y reproducible.
 
-```bash
-find Semana0 -maxdepth 2 -type f | sort
-```
+#### Parte 1: Compilación con CMake
 
-Responder en el reporte:
-
-1. Que archivos pertenecen al flujo obligatorio.
-2. Que archivos pertenecen al material avanzado.
-3. Que carpeta contiene el proyecto compilable.
-
-#### Parte 2: Compilación de Proyecto0
-
-Ejecutar:
+Ejecuta:
 
 ```bash
 rm -rf build_semana0
+
 cmake -S Semana0/Proyecto0 -B build_semana0
 cmake --build build_semana0
 ```
 
-Responder en el reporte:
+El estudiante debe registrar:
 
-1. Si la configuración de CMake terminó correctamente.
-2. Si la compilación terminó correctamente.
-3. Que ejecutables o pruebas se generaron.
+1. Sistema operativo.
+2. Versión del compilador.
+3. Versión de CMake.
+4. Resultado de la compilación.
 
-#### Parte 3: Pruebas con CTest
+#### Parte 2: Pruebas con CTest
 
-Ejecutar:
+Ejecuta:
 
 ```bash
 ctest --test-dir build_semana0 --output-on-failure
 ```
 
-Responder en el reporte:
+El estudiante debe indicar:
 
-1. Cuántas pruebas se ejecutaron.
-2. Cuántas pruebas pasaron.
-3. Que significa una prueba fallida en el contexto del curso.
+1. Cantidad de pruebas ejecutadas.
+2. Cantidad de pruebas aprobadas.
+3. Si alguna prueba falla, causa probable y corrección aplicada.
 
-#### Parte 4: Limpieza del repositorio
+#### Parte 3: C++ básico
 
-Ejecutar:
+Revisa las demos principales:
 
 ```bash
-rm -rf build_semana0
-rm -rf Semana0/Proyecto0/Testing
-rm -rf Semana0/ejercicios0_out
-
-git status --short --untracked-files=all
+./build_semana0/demo_line_stats
+./build_semana0/demo_const_refs
+./build_semana0/demo_copy_semantics
+./build_semana0/demo_raii
 ```
 
-Responder en el reporte:
+El estudiante debe explicar:
 
-1. Que archivos generados fueron eliminados.
-2. Por qué no se deben subir builds ni carpetas de salida.
-3. Que muestra `git status` despues de la limpieza.
+1. Diferencia entre paso por valor y paso por referencia const.
+2. Uso de RAII.
+3. Diferencia entre copia superficial y copia profunda.
+4. Por qué una función de solo lectura debe usar `const` cuando corresponde.
 
-#### Parte 5: Lectura técnica
+#### Parte 4: Templates
 
-Leer:
+El estudiante debe implementar una función template llamada `maximumValue`.
 
-```text
-Semana0/lecturas/README.md
-Semana0/lecturas/Lectura03-Pruebas-Unitarias.md
+Firma esperada:
+
+```cpp
+template <typename T>
+const T& maximumValue(const T& a, const T& b);
 ```
 
-Responder:
+La función debe devolver una referencia constante al mayor valor según `operator<`.
 
-1. Diferencia entre prueba publica y prueba interna.
-2. Diferencia entre prueba y benchmark.
-3. Por qué primero se valida correctitud y despues se mide rendimiento.
+Debe probarse al menos con:
 
-#### Parte 6: Material avanzado
+1. `int`.
+2. `double`.
+3. `std::string`.
 
-Revisar sin modificar código:
+#### Parte 5: `SimpleArray<T>`
 
-```text
-Semana0/avanzado/Ejercicios0_experimentos_gpp.md
-Semana0/avanzado/INSTRUCCIONES_Ejercicios0_v4_2.md
+El estudiante debe implementar o completar una clase `SimpleArray<T>` con estas operaciones mínimas:
+
+```cpp
+template <typename T>
+class SimpleArray {
+public:
+    explicit SimpleArray(std::size_t size);
+
+    std::size_t size() const noexcept;
+    bool empty() const noexcept;
+
+    T& operator[](std::size_t index) noexcept;
+    const T& operator[](std::size_t index) const noexcept;
+
+    T& at(std::size_t index);
+    const T& at(std::size_t index) const;
+
+    void fill(const T& value);
+};
 ```
 
-Responder:
+Requisitos:
 
-1. Que experimentos son obligatorios para empezar el curso.
-2. Que experimentos se consideran avanzados.
-3. Por que LTO, PGO y profiling no deben mezclarse con la primera validación del proyecto.
+1. `at` debe validar rango.
+2. `operator[]` no debe validar rango.
+3. `fill` debe asignar el mismo valor a todos los elementos.
+4. La clase debe respetar RAII.
+5. La clase debe evitar memoria manual innecesaria si se usa `std::vector<T>` internamente.
 
-#### Entregable
+#### Parte 6: Sanitizers
 
-El estudiante debe entregar un archivo llamado:
+Compila con sanitizers:
 
-```text
-reporte_semana0.md
+```bash
+rm -rf build_semana0_san
+
+cmake -S Semana0/Proyecto0 -B build_semana0_san \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCC232_ENABLE_SANITIZERS=ON
+
+cmake --build build_semana0_san
+ctest --test-dir build_semana0_san --output-on-failure
 ```
 
-El reporte debe contener:
+Ejecuta manualmente los demos incorrectos:
 
-1. Comandos ejecutados.
-2. Salida resumida de CMake.
-3. Salida resumida de CTest.
-4. Respuestas a las preguntas de la actividad.
-5. Observaciones sobre errores encontrados y como se corrigieron.
+```bash
+./build_semana0_san/demo_asan_out_of_bounds
+./build_semana0_san/demo_ubsan_overflow
+./build_semana0_san/demo_iterator_invalid
+```
 
-#### Criterios de evaluación
+El estudiante debe explicar:
 
-| Criterio | Puntaje |
-|---|---:|
-| Compilación correcta con CMake | 4 |
-| Ejecución correcta de CTest | 4 |
-| Limpieza del repositorio | 3 |
-| Comprensión de pruebas y benchmarks | 3 |
-| Identificación de material obligatorio y avanzado | 3 |
-| Reporte claro y verificable | 3 |
+1. Qué error detecta ASan.
+2. Qué error detecta UBSan.
+3. En qué archivo y línea aparece el error.
+4. Por qué estos demos no deben registrarse como pruebas automáticas de CTest.
 
-#### Restricciones
+#### Parte 7: STL, iteradores y complejidad
 
-1. No modificar código fuente de `Proyecto0` en esta actividad.
-2. No subir carpetas `build` ni salidas temporales.
-3. No usar capturas de pantalla como sustituto de comandos y salidas.
-4. No entregar todo en un unico commit final si se trabaja en repositorio propio.
+Ejecuta:
 
-#### Extension Fase 0.2
+```bash
+./build_semana0/demo_vector_growth
+./build_semana0/demo_iterator_invalidation
+./build_semana0/demo_stl_algorithms
+```
 
-En esta fase se agrega una lectura obligatoria de C++17 minimo y tres demostraciones pequeñas. El estudiante debe revisar:
+El estudiante debe explicar:
 
-1. `lecturas/Lectura00-Cpp-Minimo-CC232.md`.
-2. `Proyecto0/apps/demo_const_refs.cpp`.
-3. `Proyecto0/apps/demo_copy_semantics.cpp`.
-4. `Proyecto0/apps/demo_raii.cpp`.
+1. Diferencia entre tamaño y capacidad de `std::vector`.
+2. Por qué una inserción puede invalidar iteradores.
+3. Cuándo usar `std::sort`.
+4. Cuándo usar `std::lower_bound`.
+5. Cuándo usar `std::nth_element`.
+6. Cuándo usar `std::partial_sort`.
 
-El objetivo no es memorizar todo C++. El objetivo es reconocer las decisiones que apareceran después en arreglos, listas, heaps, árboles, hashing, grafos y
-estructuras de rango.
+#### Parte 8: Benchmark simple
 
-#### Preguntas de control de Fase 0.2
+Ejecuta al menos un benchmark disponible:
 
-1. Cuándo conviene usar `const std::vector<int>&` en lugar de `std::vector<int>`.
-2. Por que `std::size_t` aparece al recorrer un `std::vector`.
-3. Que diferencia hay entre una copia compartida y una copia profunda.
-4. Por que un destructor puede ejecutarse aunque no se llame de forma explícita.
-5. Como RAII ayuda a evitar fugas de recursos.
+```bash
+./build_semana0/bench_vector_growth
+```
 
+Si existen más benchmarks, pueden ejecutarse también:
 
-#### Extensión de Fase 0.3
+```bash
+./build_semana0/bench_vector_ops
+./build_semana0/bench_cache_effects
+```
 
-Agrega la lectura `Lectura01-Templates-Genericos.md`, ejecuta la demostración `demo_templates` y revisa la prueba `test_simple_array`. El estudiante debe explicar por que `SimpleArray<T>` define `operator[]` mutable y constante.
+El estudiante debe reportar:
 
-#### Extensión de la actividad: Sanitizers
+1. Tamaño de entrada.
+2. Tiempo aproximado.
+3. Observación principal.
+4. Por qué un benchmark no reemplaza una prueba de correctitud.
 
-El estudiante debe compilar `Proyecto0` con `CC232_ENABLE_SANITIZERS=ON`, ejecutar las pruebas y explicar al menos un reporte producido por una demostración intencionalmente incorrecta.
+#### Parte 9: Reporte corto
 
-#### Extensión de la actividad: STL, iteradores y complejidad
+El reporte debe tener como máximo dos páginas y debe incluir:
 
-El estudiante debe ejecutar las demostraciones de `std::vector`, invalidación de iteradores y algoritmos de STL. Luego debe explicar qué estructura o algoritmo usaría para tres cargas de trabajo distintas.
+1. Datos del estudiante.
+2. Entorno usado.
+3. Comandos ejecutados.
+4. Resultado de CMake.
+5. Resultado de CTest.
+6. Evidencia de sanitizers.
+7. Resultado del benchmark.
+8. Una conclusión técnica.
+
+#### Entregables
+
+El estudiante debe entregar:
+
+1. Código modificado si corresponde.
+2. Reporte corto en Markdown o PDF.
+3. Captura o texto de salida de CTest.
+4. Fragmento relevante de salida de ASan.
+5. Fragmento relevante de salida de UBSan.
+6. Resultado del benchmark simple.
+
+#### Criterio de aprobación
+
+Semana0 se considera aprobada si:
+
+1. El proyecto compila.
+2. Las pruebas pasan.
+3. La implementación template funciona.
+4. `SimpleArray<T>` cumple su contrato mínimo.
+5. El estudiante entiende al menos un reporte de ASan y uno de UBSan.
+6. El reporte es claro y reproducible.
