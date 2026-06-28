@@ -117,8 +117,7 @@ rm -rf Semana0/ejercicios0_out
 
 #### Alcance de esta fase
 
-La Fase 0.2 agrega lectura de C++17 mínimo y demostraciones pequeñas. No modifica la logica principal de `Proyecto0` ni adelanta estructuras de datos.
-
+La fase 0.2 agrega lectura de C++17 mínimo y demostraciones pequeñas. No modifica la logica principal de `Proyecto0` ni adelanta estructuras de datos.
 
 #### Fase 0.3: Templates y programación genérica
 
