@@ -167,3 +167,7 @@ Agrega la lectura `Lectura01-Templates-Genericos.md`, ejecuta la demostración `
 ### Extensión de la actividad: Sanitizers
 
 El estudiante debe compilar `Proyecto0` con `CC232_ENABLE_SANITIZERS=ON`, ejecutar las pruebas y explicar al menos un reporte producido por un demo intencionalmente incorrecto.
+
+### Extensión de la actividad: STL, iteradores y complejidad
+
+El estudiante debe ejecutar los demos de `std::vector`, invalidación de iteradores y algoritmos de STL. Luego debe explicar qué estructura o algoritmo usaría para tres cargas de trabajo distintas.
