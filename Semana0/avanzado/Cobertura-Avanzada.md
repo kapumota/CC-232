@@ -18,10 +18,10 @@ La cobertura indica qué partes del código fueron ejecutadas por las pruebas. N
 
 La cobertura debe interpretarse junto con:
 
-1. Casos borde.
-2. Invariantes.
-3. Pruebas internas.
-4. Sanitizers.
+1. Casos borde
+2. Invariantes
+3. Pruebas internas
+4. Sanitizers
 5. Revisión del contrato de la estructura.
 
 #### Regla del curso
