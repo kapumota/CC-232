@@ -71,5 +71,5 @@ Hay que leerlos con cautela:
 - dependen del compilador
 - dependen del hardware
 - dependen del tamaño `n`
-- una diferencia pequeña puede ser ruido
+- una diferencia pequeña puede ser ruido.
 
