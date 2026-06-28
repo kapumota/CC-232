@@ -98,7 +98,7 @@ rm -rf Semana0/ejercicios0_out
 
 #### Temas obligatorios
 
-1. Flujo basico con Git.
+1. Flujo básico con Git.
 2. Compilación con CMake.
 3. Pruebas con CTest.
 4. Lectura de código C++17 básico.
