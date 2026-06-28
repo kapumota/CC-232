@@ -1,4 +1,4 @@
-### Actividad0-CC232: Preparacion tecnica del curso
+### Actividad0-CC232: Preparación técnica del curso
 
 #### Objetivo
 
@@ -6,13 +6,13 @@ Preparar el entorno de trabajo para CC232 y validar que el estudiante puede comp
 
 #### Contexto
 
-Durante el curso se implementaran estructuras de datos con C++17. Antes de modificar arreglos, listas, arboles, tablas hash o grafos, cada estudiante debe demostrar que domina el flujo tecnico minimo.
+Durante el curso se implementaran estructuras de datos con C++17. Antes de modificar arreglos, listas, árboles, tablas hash o grafos, cada estudiante debe demostrar que domina el flujo técnico mínimo.
 
 #### Trabajo individual
 
 La actividad es individual. Cada estudiante debe ejecutar los comandos, revisar la salida y entregar un reporte breve.
 
-#### Parte 1: Exploracion de Semana0
+#### Parte 1: Exploración de la Semana0
 
 Desde la raiz del repositorio, listar la estructura principal:
 
@@ -26,7 +26,7 @@ Responder en el reporte:
 2. Que archivos pertenecen al material avanzado.
 3. Que carpeta contiene el proyecto compilable.
 
-#### Parte 2: Compilacion de Proyecto0
+#### Parte 2: Compilación de Proyecto0
 
 Ejecutar:
 
@@ -38,8 +38,8 @@ cmake --build build_semana0
 
 Responder en el reporte:
 
-1. Si la configuracion de CMake termino correctamente.
-2. Si la compilacion termino correctamente.
+1. Si la configuración de CMake terminó correctamente.
+2. Si la compilación terminó correctamente.
 3. Que ejecutables o pruebas se generaron.
 
 #### Parte 3: Pruebas con CTest
@@ -52,8 +52,8 @@ ctest --test-dir build_semana0 --output-on-failure
 
 Responder en el reporte:
 
-1. Cuantas pruebas se ejecutaron.
-2. Cuantas pruebas pasaron.
+1. Cuántas pruebas se ejecutaron.
+2. Cuántas pruebas pasaron.
 3. Que significa una prueba fallida en el contexto del curso.
 
 #### Parte 4: Limpieza del repositorio
@@ -71,10 +71,10 @@ git status --short --untracked-files=all
 Responder en el reporte:
 
 1. Que archivos generados fueron eliminados.
-2. Por que no se deben subir builds ni carpetas de salida.
+2. Por qué no se deben subir builds ni carpetas de salida.
 3. Que muestra `git status` despues de la limpieza.
 
-#### Parte 5: Lectura tecnica
+#### Parte 5: Lectura técnica
 
 Leer:
 
@@ -87,7 +87,7 @@ Responder:
 
 1. Diferencia entre prueba publica y prueba interna.
 2. Diferencia entre prueba y benchmark.
-3. Por que primero se valida correctitud y despues se mide rendimiento.
+3. Por qué primero se valida correctitud y despues se mide rendimiento.
 
 #### Parte 6: Material avanzado
 
@@ -102,7 +102,7 @@ Responder:
 
 1. Que experimentos son obligatorios para empezar el curso.
 2. Que experimentos se consideran avanzados.
-3. Por que LTO, PGO y profiling no deben mezclarse con la primera validacion del proyecto.
+3. Por que LTO, PGO y profiling no deben mezclarse con la primera validación del proyecto.
 
 #### Entregable
 
@@ -125,7 +125,7 @@ El reporte debe contener:
 | Criterio | Puntaje |
 |---|---:|
 | Compilacion correcta con CMake | 4 |
-| Ejecucion correcta de CTest | 4 |
+| Ejecución correcta de CTest | 4 |
 | Limpieza del repositorio | 3 |
 | Comprension de pruebas y benchmarks | 3 |
 | Identificacion de material obligatorio y avanzado | 3 |
@@ -140,28 +140,26 @@ El reporte debe contener:
 
 #### Extension Fase 0.2
 
-En esta fase se agrega una lectura obligatoria de C++17 minimo y tres demos
-pequenos. El estudiante debe revisar:
+En esta fase se agrega una lectura obligatoria de C++17 minimo y tres demostraciones
+pequeñas. El estudiante debe revisar:
 
 1. `lecturas/Lectura00-Cpp-Minimo-CC232.md`.
 2. `Proyecto0/apps/demo_const_refs.cpp`.
 3. `Proyecto0/apps/demo_copy_semantics.cpp`.
 4. `Proyecto0/apps/demo_raii.cpp`.
 
-El objetivo no es memorizar todo C++. El objetivo es reconocer las decisiones que
-apareceran despues en arreglos, listas, heaps, arboles, hashing, grafos y
+El objetivo no es memorizar todo C++. El objetivo es reconocer las decisiones que apareceran después en arreglos, listas, heaps, árboles, hashing, grafos y
 estructuras de rango.
 
 #### Preguntas de control de Fase 0.2
 
-1. Cuando conviene usar `const std::vector<int>&` en lugar de `std::vector<int>`.
+1. Cuándo conviene usar `const std::vector<int>&` en lugar de `std::vector<int>`.
 2. Por que `std::size_t` aparece al recorrer un `std::vector`.
 3. Que diferencia hay entre una copia compartida y una copia profunda.
-4. Por que un destructor puede ejecutarse aunque no se llame de forma explicita.
+4. Por que un destructor puede ejecutarse aunque no se llame de forma explícita.
 5. Como RAII ayuda a evitar fugas de recursos.
 
 
+#### Extensión de Fase 0.3
 
-#### Extension de Fase 0.3
-
-Agrega la lectura `Lectura01-Templates-Genericos.md`, ejecuta el demo `demo_templates` y revisa la prueba `test_simple_array`. El estudiante debe explicar por que `SimpleArray<T>` define `operator[]` mutable y constante.
+Agrega la lectura `Lectura01-Templates-Genericos.md`, ejecuta la demostración `demo_templates` y revisa la prueba `test_simple_array`. El estudiante debe explicar por que `SimpleArray<T>` define `operator[]` mutable y constante.
