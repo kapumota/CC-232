@@ -1,20 +1,20 @@
-### Lectura00: C++17 minimo para CC232
+### Lectura00: C++17 mínimo para CC232
 
-#### Proposito
+#### Propósito
 
-Esta lectura fija la base de C++17 que se usara durante el curso CC232.
+Esta lectura fija la base de C++17 que se usará durante el curso CC232.
 La meta no es cubrir todo el lenguaje, sino dominar los conceptos necesarios
 para implementar estructuras de datos de forma segura, legible y verificable.
 
-Semana0 no adelanta listas, arboles, hashing ni grafos. Prepara al estudiante
-para leer codigo modular, compilarlo, probarlo y razonar sobre copia, referencias,
+Semana0 no adelanta listas, árboles, hashing ni grafos. Prepara al estudiante
+para leer código modular, compilarlo, probarlo y razonar sobre copia, referencias,
 mutabilidad y vida de objetos.
 
 #### Resultado esperado
 
 Al terminar esta lectura, el estudiante debe poder:
 
-1. Elegir tipos adecuados para indices, tamanos y acumuladores.
+1. Elegir tipos adecuados para índices, tamaños y acumuladores.
 2. Explicar la diferencia entre paso por valor, referencia y referencia const.
 3. Usar `struct` y `class` con criterio.
 4. Reconocer constructores y destructores.
@@ -23,23 +23,23 @@ Al terminar esta lectura, el estudiante debe poder:
 7. Distinguir copia superficial y copia profunda.
 8. Leer errores comunes antes de implementar estructuras de datos.
 
-#### Tipos basicos
+#### Tipos básicos
 
 C++ permite trabajar con tipos primitivos y tipos definidos por el programador.
-En CC232 se usaran principalmente:
+En CC232 se usarán principalmente:
 
-| Tipo | Uso frecuente |
-|---|---|
-| `int` | valores pequenos, claves enteras, contadores simples |
-| `long long` | acumuladores que pueden crecer mucho |
-| `bool` | respuestas logicas e invariantes |
-| `char` | caracteres y alfabetos |
-| `std::string` | cadenas de texto |
-| `std::size_t` | tamanos e indices de contenedores |
+| Tipo          | Uso frecuente                                        |
+| ------------- | ---------------------------------------------------- |
+| `int`         | valores pequeños, claves enteras, contadores simples |
+| `long long`   | acumuladores que pueden crecer mucho                 |
+| `bool`        | respuestas lógicas e invariantes                     |
+| `char`        | caracteres y alfabetos                               |
+| `std::string` | cadenas de texto                                     |
+| `std::size_t` | tamaños e índices de contenedores                    |
 
 #### `std::size_t`
 
-`std::size_t` es el tipo que la biblioteca estandar usa para representar tamanos.
+`std::size_t` es el tipo que la biblioteca estándar usa para representar tamaños.
 Por eso aparece en llamadas como `vector.size()` o `string.size()`.
 
 Ejemplo:
@@ -51,16 +51,16 @@ for (std::size_t i = 0; i < values.size(); ++i) {
 }
 ```
 
-Regla practica:
+Regla práctica:
 
-1. Usa `std::size_t` para recorrer indices de contenedores.
+1. Usa `std::size_t` para recorrer índices de contenedores.
 2. Usa `int` cuando el dominio del problema sea naturalmente entero con signo.
-3. Evita mezclar indices con signo y sin signo sin revisar la condicion.
+3. Evita mezclar índices con signo y sin signo sin revisar la condición.
 
 #### Paso por valor
 
-En paso por valor, la funcion recibe una copia del argumento.
-Modificar el parametro no cambia el objeto original.
+En paso por valor, la función recibe una copia del argumento.
+Modificar el parámetro no cambia el objeto original.
 
 ```cpp
 void addValue(std::vector<int> values, int x) {
@@ -68,13 +68,13 @@ void addValue(std::vector<int> values, int x) {
 }
 ```
 
-Este estilo puede ser correcto cuando se necesita una copia local. Tambien puede
+Este estilo puede ser correcto cuando se necesita una copia local. También puede
 ser costoso si el objeto es grande.
 
 #### Paso por referencia
 
-En paso por referencia, la funcion recibe el objeto original.
-Modificar el parametro cambia el objeto del llamador.
+En paso por referencia, la función recibe el objeto original.
+Modificar el parámetro cambia el objeto del llamador.
 
 ```cpp
 void addInPlace(std::vector<int>& values, int x) {
@@ -82,7 +82,7 @@ void addInPlace(std::vector<int>& values, int x) {
 }
 ```
 
-Este estilo se usa cuando la funcion debe modificar la estructura.
+Este estilo se usa cuando la función debe modificar la estructura.
 
 #### Referencia const
 
@@ -98,7 +98,7 @@ int sumValues(const std::vector<int>& values) {
 }
 ```
 
-Esta forma debe ser la primera opcion para funciones de solo lectura que reciben
+Esta forma debe ser la primera opción para funciones de solo lectura que reciben
 objetos grandes.
 
 #### `struct` frente a `class`
@@ -106,10 +106,10 @@ objetos grandes.
 En C++, `struct` y `class` pueden tener datos y funciones. La diferencia inicial
 es el nivel de acceso por defecto.
 
-| Forma | Acceso por defecto | Uso recomendado en CC232 |
-|---|---|---|
-| `struct` | publico | datos simples, resultados, nodos internos pequenos |
-| `class` | privado | estructuras con invariantes fuertes |
+| Forma    | Acceso por defecto | Uso recomendado en CC232                           |
+| -------- | ------------------ | -------------------------------------------------- |
+| `struct` | público            | datos simples, resultados, nodos internos pequeños |
+| `class`  | privado            | estructuras con invariantes fuertes                |
 
 Ejemplo de `struct`:
 
@@ -142,7 +142,7 @@ private:
 #### Constructores
 
 Un constructor inicializa un objeto. En estructuras de datos, los constructores
-permiten dejar un objeto en un estado valido desde el inicio.
+permiten dejar un objeto en un estado válido desde el inicio.
 
 ```cpp
 class Buffer {
@@ -160,7 +160,7 @@ private:
 };
 ```
 
-La palabra `explicit` evita conversiones automaticas no deseadas.
+La palabra `explicit` evita conversiones automáticas no deseadas.
 
 #### Destructores
 
@@ -186,26 +186,26 @@ public:
 #### RAII
 
 RAII significa que un recurso se adquiere al construir un objeto y se libera al
-destruirlo. En CC232, esta idea evita fugas y estados invalidos.
+destruirlo. En CC232, esta idea evita fugas y estados inválidos.
 
-Ejemplos de RAII en la biblioteca estandar:
+Ejemplos de RAII en la biblioteca estándar:
 
-| Tipo | Recurso administrado |
-|---|---|
-| `std::vector<T>` | memoria dinamica del arreglo interno |
-| `std::string` | memoria de la cadena |
-| `std::unique_ptr<T>` | propiedad unica de un objeto dinamico |
-| `std::ifstream` | archivo abierto |
+| Tipo                 | Recurso administrado                  |
+| -------------------- | ------------------------------------- |
+| `std::vector<T>`     | memoria dinámica del arreglo interno  |
+| `std::string`        | memoria de la cadena                  |
+| `std::unique_ptr<T>` | propiedad única de un objeto dinámico |
+| `std::ifstream`      | archivo abierto                       |
 
-Regla practica:
+Regla práctica:
 
-1. Prefiere contenedores estandar antes que memoria manual.
-2. Evita `new` y `delete` en codigo inicial del curso.
+1. Prefiere contenedores estándar antes que memoria manual.
+2. Evita `new` y `delete` en código inicial del curso.
 3. Usa objetos que limpian sus recursos al salir de alcance.
 
 #### `const correctness`
 
-Una funcion miembro que no modifica el objeto debe marcarse como `const`.
+Una función miembro que no modifica el objeto debe marcarse como `const`.
 
 ```cpp
 class Bag {
@@ -220,20 +220,20 @@ private:
 ```
 
 Esto permite usar el objeto desde contextos de solo lectura y ayuda a documentar
-intencion.
+intención.
 
 #### Copia superficial
 
-Una copia superficial comparte algun recurso entre dos objetos. Eso puede ser
+Una copia superficial comparte algún recurso entre dos objetos. Eso puede ser
 correcto si se quiere compartir, pero puede ser peligroso si no se entiende la
 propiedad del recurso.
 
-En CC232, se evitara iniciar con punteros crudos para explicar propiedad. La idea
-se demostrara con un objeto que comparte datos mediante `std::shared_ptr`.
+En CC232, se evitará iniciar con punteros crudos para explicar propiedad. La idea
+se demostrará con un objeto que comparte datos mediante `std::shared_ptr`.
 
 #### Copia profunda
 
-Una copia profunda duplica los datos. Despues de copiar, cambiar la copia no
+Una copia profunda duplica los datos. Después de copiar, cambiar la copia no
 modifica el original.
 
 `std::vector<int>` realiza copia profunda de sus elementos:
@@ -244,35 +244,35 @@ std::vector<int> b = a;
 b.push_back(4);
 ```
 
-Despues de ese codigo, `a` conserva tres elementos y `b` tiene cuatro.
+Después de ese código, `a` conserva tres elementos y `b` tiene cuatro.
 
 #### Errores comunes
 
-| Error | Consecuencia |
-|---|---|
-| Pasar vectores grandes por valor sin necesitar copia | costo innecesario |
-| Olvidar `const` en funciones de solo lectura | API menos clara |
-| Usar `int` para todos los indices | advertencias y errores con tamanos |
-| Exponer todos los datos publicos en estructuras complejas | invariantes fragiles |
-| Usar memoria manual antes de dominar RAII | fugas o doble liberacion |
+| Error                                                     | Consecuencia                       |
+| --------------------------------------------------------- | ---------------------------------- |
+| Pasar vectores grandes por valor sin necesitar copia      | costo innecesario                  |
+| Olvidar `const` en funciones de solo lectura              | API menos clara                    |
+| Usar `int` para todos los índices                         | advertencias y errores con tamaños |
+| Exponer todos los datos públicos en estructuras complejas | invariantes frágiles               |
+| Usar memoria manual antes de dominar RAII                 | fugas o doble liberación           |
 
-#### Relacion con el resto del curso
+#### Relación con el resto del curso
 
 Estos conceptos aparecen en casi todas las semanas:
 
-| Concepto | Uso posterior |
-|---|---|
-| `std::size_t` | arreglos, heaps, tablas hash, segment trees |
-| referencias const | busquedas y consultas sin copia |
-| referencias no const | actualizaciones e inserciones |
-| RAII | nodos, buffers, estructuras auxiliares |
-| copia profunda | contenedores y pruebas |
-| `class` con invariantes | estructuras balanceadas y arboles |
+| Concepto                | Uso posterior                               |
+| ----------------------- | ------------------------------------------- |
+| `std::size_t`           | arreglos, heaps, tablas hash, segment trees |
+| referencias const       | búsquedas y consultas sin copia             |
+| referencias no const    | actualizaciones e inserciones               |
+| RAII                    | nodos, buffers, estructuras auxiliares      |
+| copia profunda          | contenedores y pruebas                      |
+| `class` con invariantes | estructuras balanceadas y árboles           |
 
 #### Ejercicios de lectura
 
-1. Escribe una funcion que reciba `const std::vector<int>&` y devuelva el maximo.
-2. Explica por que `std::vector<int> v` como parametro puede copiar muchos datos.
+1. Escribe una función que reciba `const std::vector<int>&` y devuelva el máximo.
+2. Explica por qué `std::vector<int> v` como parámetro puede copiar muchos datos.
 3. Muestra un caso donde una referencia no const sea necesaria.
-4. Explica por que un metodo `size()` normalmente debe ser `const`.
+4. Explica por qué un método `size()` normalmente debe ser `const`.
 5. Describe una diferencia entre copia superficial y copia profunda.
