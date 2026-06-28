@@ -1,9 +1,8 @@
-### Validacion local de Semana0
+### Validación local de Semana0
 
 #### Objetivo
 
-Este archivo resume los comandos minimos para verificar Semana0 desde la raiz del
-repositorio.
+Este archivo resume los comandos mínimos para verificar Semana0 desde la raíz del repositorio.
 
 #### Compilar Proyecto0
 
@@ -28,7 +27,7 @@ ctest --test-dir build_semana0 --output-on-failure
 ./build_semana0/demo_raii
 ```
 
-En Windows con generadores multi configuracion, los ejecutables pueden quedar en
+En Windows con generadores multiconfiguración, los ejecutables pueden quedar en
 una carpeta como `build_semana0/Debug`.
 
 #### Limpiar artefactos
@@ -39,40 +38,49 @@ rm -rf Semana0/Proyecto0/Testing
 rm -rf Semana0/ejercicios0_out
 ```
 
-#### Validacion de documentacion
+#### Validación de documentación
 
 ```bash
 grep -RIn "====\|—\|→" Semana0/*.md Semana0/lecturas/*.md Semana0/avanzado/*.md || true
 ```
 
-El comando anterior ayuda a encontrar separadores o simbolos que no se quieren en
-la documentacion del curso.
+El comando anterior ayuda a encontrar separadores o símbolos que no se quieren en
+la documentación del curso.
 
+### Fase 0.3: Templates
 
-Fase 0.3 templates:
+#### Ejecutar demo de templates
+
+```bash
 ./build_semana0/demo_templates
+```
 
+### Fase 0.4: CMake moderno y CTest
 
-Fase 0.4: CMake moderno y CTest
+#### Validación normal
 
-Validacion normal:
-
+```bash
 rm -rf build_semana0
 cmake -S Semana0/Proyecto0 -B build_semana0
 cmake --build build_semana0
 ctest --test-dir build_semana0 --output-on-failure
+```
 
-Validacion sin demos ni benchmarks:
+#### Validación sin demos ni benchmarks
 
+```bash
 rm -rf build_semana0_min
 cmake -S Semana0/Proyecto0 -B build_semana0_min -DBUILD_APPS=OFF -DBUILD_BENCHMARKS=OFF
 cmake --build build_semana0_min
 ctest --test-dir build_semana0_min --output-on-failure
+```
 
-Limpieza:
+#### Limpieza
 
+```bash
 rm -rf build_semana0 build_semana0_min
 rm -rf Semana0/Proyecto0/Testing
+```
 
 ### Fase 0.5: Sanitizers
 
@@ -81,7 +89,9 @@ rm -rf Semana0/Proyecto0/Testing
 ```bash
 rm -rf build_semana0_san
 
-cmake -S Semana0/Proyecto0 -B build_semana0_san   -DCMAKE_BUILD_TYPE=Debug   -DCC232_ENABLE_SANITIZERS=ON
+cmake -S Semana0/Proyecto0 -B build_semana0_san \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCC232_ENABLE_SANITIZERS=ON
 
 cmake --build build_semana0_san
 ctest --test-dir build_semana0_san --output-on-failure
