@@ -163,3 +163,7 @@ estructuras de rango.
 #### Extensión de Fase 0.3
 
 Agrega la lectura `Lectura01-Templates-Genericos.md`, ejecuta la demostración `demo_templates` y revisa la prueba `test_simple_array`. El estudiante debe explicar por que `SimpleArray<T>` define `operator[]` mutable y constante.
+
+### Extensión de la actividad: Sanitizers
+
+El estudiante debe compilar `Proyecto0` con `CC232_ENABLE_SANITIZERS=ON`, ejecutar las pruebas y explicar al menos un reporte producido por un demo intencionalmente incorrecto.

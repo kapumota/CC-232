@@ -1,0 +1,31 @@
+# Builds de CMake
+build/
+build_*/
+cmake-build-*/
+
+# Builds locales dentro de proyectos
+Semana0/Proyecto0/build/
+Semana0/Proyecto0/Testing/
+
+# Archivos generados por CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+DartConfiguration.tcl
+
+# Binarios y objetos
+*.o
+*.obj
+*.exe
+*.out
+*.a
+*.so
+*.dll
+*.dylib
+
+# Editor y sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
