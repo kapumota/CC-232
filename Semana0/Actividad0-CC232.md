@@ -91,7 +91,7 @@ Responder:
 
 #### Parte 6: Material avanzado
 
-Revisar sin modificar codigo:
+Revisar sin modificar código:
 
 ```text
 Semana0/avanzado/Ejercicios0_experimentos_gpp.md
@@ -133,7 +133,7 @@ El reporte debe contener:
 
 #### Restricciones
 
-1. No modificar codigo fuente de `Proyecto0` en esta actividad.
+1. No modificar código fuente de `Proyecto0` en esta actividad.
 2. No subir carpetas `build` ni salidas temporales.
 3. No usar capturas de pantalla como sustituto de comandos y salidas.
 4. No entregar todo en un unico commit final si se trabaja en repositorio propio.
