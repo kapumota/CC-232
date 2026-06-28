@@ -1,4 +1,4 @@
-### Instrucciones para los experimentos avanzados de Semana0
+### Instrucciones para los experimentos avanzados de la Semana0
 
 #### Proposito
 
@@ -24,7 +24,7 @@ Semana0/stl_optimizacion_demostracion.cpp
 Semana0/avanzado/Ejercicios0_experimentos_gpp.md
 ```
 
-#### Dar permiso de ejecucion
+#### Dar permiso de ejecución
 
 Desde `Semana0`:
 
@@ -50,7 +50,7 @@ La salida se genera en:
 ejercicios0_out/
 ```
 
-#### Ejecutar un experimento especifico
+#### Ejecutar un experimento específico
 
 ```bash
 ./resolver_ejercicios0_v4.2.sh 1
@@ -65,7 +65,7 @@ ejercicios0_out/
 ./resolver_ejercicios0_v4.2.sh 10
 ```
 
-#### Aliases utiles
+#### Aliases útiles
 
 ```bash
 ./resolver_ejercicios0_v4.2.sh opt
@@ -76,9 +76,9 @@ ejercicios0_out/
 ./resolver_ejercicios0_v4.2.sh gprof
 ```
 
-#### Uso con ruta explicita
+#### Uso con ruta explícita
 
-Si el archivo base esta en otra ubicacion:
+Si el archivo base esta en otra ubicación:
 
 ```bash
 ./resolver_ejercicios0_v4.2.sh ./stl_optimizacion_demostracion.cpp 2
@@ -91,6 +91,6 @@ rm -rf ejercicios0_out
 rm -f demo_* stl_demo tests_cov *.gcda *.gcno *.gcov gmon.out
 ```
 
-#### Recomendacion
+#### Recomendación
 
 Primero se debe validar `Proyecto0` con CMake y CTest. Luego se ejecutan estos experimentos avanzados.
