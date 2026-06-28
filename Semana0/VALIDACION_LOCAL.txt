@@ -47,3 +47,7 @@ grep -RIn "====\|—\|→" Semana0/*.md Semana0/lecturas/*.md Semana0/avanzado/*
 
 El comando anterior ayuda a encontrar separadores o simbolos que no se quieren en
 la documentacion del curso.
+
+
+Fase 0.3 templates:
+./build_semana0/demo_templates

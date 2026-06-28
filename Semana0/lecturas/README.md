@@ -16,7 +16,7 @@ CC232.
 
 | Lectura | Fase prevista |
 |---|---|
-| `Lectura01-Templates-Genericos.md` | Fase 0.3 |
+
 | `Lectura02-CMake-CTest-CC232.md` | Fase 0.4 |
 | `Lectura04-Sanitizers.md` | Fase 0.5 |
 | `Lectura05-STL-Complejidad.md` | Fase 0.6 |
@@ -26,3 +26,5 @@ CC232.
 Las lecturas de esta carpeta se consideran parte del flujo obligatorio del curso.
 Las lecturas de `Semana0/avanzado` se usan despues de que el estudiante ya puede
 compilar, probar y limpiar el proyecto base.
+
+| `Lectura01-Templates-Genericos.md` | Introduce funciones y clases genericas para estructuras de datos. |

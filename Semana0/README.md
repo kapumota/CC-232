@@ -119,3 +119,8 @@ rm -rf Semana0/ejercicios0_out
 
 La Fase 0.2 agrega lectura de C++17 minimo y demos pequenos. No modifica la
 logica principal de `Proyecto0` ni adelanta estructuras de datos.
+
+
+#### Fase 0.3: Templates y programacion generica
+
+Esta fase agrega una lectura y ejemplos minimos de templates. El objetivo es preparar al estudiante para estructuras genericas como arreglos, pilas, colas, heaps, arboles, tablas hash, segment trees y B-Trees.
