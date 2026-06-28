@@ -2,13 +2,13 @@
 
 #### Proposito
 
-Esta lectura explica el flujo minimo de CMake y CTest que se usara durante el curso CC232.
+Esta lectura explica el flujo minimo de CMake y CTest que se usará durante el curso CC232.
 
-El objetivo no es memorizar todos los comandos de CMake. El objetivo es entender como se organiza un proyecto pequeno de C++17, como se separa una biblioteca de sus demos y pruebas, y como se valida el codigo antes de avanzar a estructuras de datos.
+El objetivo no es memorizar todos los comandos de CMake. El objetivo es entender como se organiza un proyecto pequeño de C++17, como se separa una biblioteca de sus demostraciones y pruebas, y como se valida el código antes de avanzar a estructuras de datos.
 
 #### Por que CMake en CC232
 
-En este curso cada semana contiene codigo C++17, pruebas, demos y a veces benchmarks.
+En este curso cada semana contiene codigo C++17, pruebas, demostraciones y a veces benchmarks.
 
 CMake permite describir esa estructura de manera reproducible:
 
@@ -33,13 +33,13 @@ cmake --build build_semana0
 ctest --test-dir build_semana0 --output-on-failure
 ```
 
-El primer comando elimina una compilacion anterior. El segundo configura el proyecto. El tercero compila. El cuarto ejecuta las pruebas registradas con CTest.
+El primer comando elimina una compilación anterior. El segundo configura el proyecto. El tercero compila. El cuarto ejecuta las pruebas registradas con CTest.
 
 #### Biblioteca principal
 
 El proyecto define una biblioteca llamada `cc232_proyecto0`.
 
-Una biblioteca agrupa codigo reutilizable. Los demos y pruebas se enlazan contra ella.
+Una biblioteca agrupa código reutilizable. Los demostraciones y pruebas se enlazan contra ella.
 
 ```cmake
 add_library(cc232_proyecto0)
@@ -66,17 +66,17 @@ En CC232 se usa C++17.
 target_compile_features(cc232_proyecto0 PUBLIC cxx_std_17)
 ```
 
-Esta forma es preferible porque asocia la version de C++ con el target que la necesita.
+Esta forma es preferible porque asocia la versión de C++ con el target que la necesita.
 
 #### Advertencias estrictas
 
-El proyecto puede activar advertencias de compilacion con una opcion:
+El proyecto puede activar advertencias de compilación con una opción:
 
 ```cmake
 option(CC232_ENABLE_WARNINGS "Activa advertencias estrictas" ON)
 ```
 
-Cuando esta opcion esta activa, se agregan banderas como:
+Cuando esta opción esta activa, se agregan flags como:
 
 ```text
 -Wall
@@ -84,7 +84,7 @@ Cuando esta opcion esta activa, se agregan banderas como:
 -Wpedantic
 ```
 
-Estas advertencias ayudan a detectar errores tempranos, conversiones sospechosas y codigo fragil.
+Estas advertencias ayudan a detectar errores tempranos, conversiones sospechosas y código frágil.
 
 #### Ejecutables de prueba
 
@@ -102,15 +102,15 @@ CTest permite ejecutar todas las pruebas con un solo comando.
 ctest --test-dir build_semana0 --output-on-failure
 ```
 
-#### Demos
+#### Demostraciones
 
-Los demos son programas pequenos para observar comportamiento.
+Los demostraciones son programas pequeños para observar comportamiento.
 
 ```cmake
 option(BUILD_APPS "Compila demos de Proyecto0" ON)
 ```
 
-Si la opcion esta activa, CMake compila los demos disponibles en `apps/`.
+Si la opción esta activa, CMake compila las demostraciones disponibles en `apps/`.
 
 ```bash
 cmake -S Semana0/Proyecto0 -B build_semana0 -DBUILD_APPS=ON
@@ -119,7 +119,7 @@ cmake --build build_semana0
 
 #### Benchmarks
 
-Los benchmarks se controlan con otra opcion:
+Los benchmarks se controlan con otra opción:
 
 ```cmake
 option(BUILD_BENCHMARKS "Compila benchmarks de Proyecto0" ON)
@@ -131,7 +131,7 @@ Los benchmarks no reemplazan las pruebas. Primero se verifica la correctitud. Lu
 
 1. Primero compilar.
 2. Luego ejecutar pruebas.
-3. Despues ejecutar demos.
+3. Despues ejecutar demostraciones.
 4. Finalmente ejecutar benchmarks si corresponde.
 5. No dejar carpetas `build` dentro del commit.
 
@@ -185,6 +185,6 @@ Al terminar esta fase, el estudiante debe entender:
 1. Que es un target en CMake.
 2. Como se declara una biblioteca.
 3. Como se registran pruebas con CTest.
-4. Como se separan biblioteca, demos, pruebas y benchmarks.
+4. Como se separan biblioteca, demostraciones, pruebas y benchmarks.
 5. Como activar o desactivar demos y benchmarks.
 6. Por que las advertencias estrictas ayudan a mantener codigo de calidad.
