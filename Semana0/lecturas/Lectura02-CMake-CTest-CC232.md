@@ -2,9 +2,9 @@
 
 #### Proposito
 
-Esta lectura explica el flujo minimo de CMake y CTest que se usará durante el curso CC232.
+Esta lectura explica el flujo mínimo de CMake y CTest que se usará durante el curso CC232.
 
-El objetivo no es memorizar todos los comandos de CMake. El objetivo es entender como se organiza un proyecto pequeño de C++17, como se separa una biblioteca de sus demostraciones y pruebas, y como se valida el código antes de avanzar a estructuras de datos.
+El objetivo no es memorizar todos los comandos de CMake. El objetivo es entender como se organiza un proyecto pequeño de C++17, como se separa una librería de sus demostraciones y pruebas, y como se valida el código antes de avanzar a estructuras de datos.
 
 #### Por que CMake en CC232
 
@@ -15,12 +15,12 @@ CMake permite describir esa estructura de manera reproducible:
 ```text
 include/   headers publicos
 src/       implementacion principal
-apps/      demos ejecutables
+apps/      demostraciones ejecutables
 tests/     pruebas
 bench/     benchmarks
 ```
 
-El estudiante debe poder compilar el proyecto desde cero sin depender de un IDE especifico.
+El estudiante debe poder compilar el proyecto desde cero sin depender de un IDE específico.
 
 #### Comandos minimos
 
@@ -35,11 +35,11 @@ ctest --test-dir build_semana0 --output-on-failure
 
 El primer comando elimina una compilación anterior. El segundo configura el proyecto. El tercero compila. El cuarto ejecuta las pruebas registradas con CTest.
 
-#### Biblioteca principal
+#### Librería principal
 
-El proyecto define una biblioteca llamada `cc232_proyecto0`.
+El proyecto define una librería llamada `cc232_proyecto0`.
 
-Una biblioteca agrupa código reutilizable. Los demostraciones y pruebas se enlazan contra ella.
+Una librería agrupa código reutilizable. Los demostraciones y pruebas se enlazan contra ella.
 
 ```cmake
 add_library(cc232_proyecto0)
@@ -56,7 +56,7 @@ target_include_directories(cc232_proyecto0
 )
 ```
 
-La palabra `PRIVATE` indica archivos usados para construir la biblioteca. La palabra `PUBLIC` indica headers que tambien necesitan los programas que usan la biblioteca.
+La palabra `PRIVATE` indica archivos usados para construir la librería. La palabra `PUBLIC` indica headers que también necesitan los programas que usan la librería.
 
 #### Version de C++
 
@@ -137,9 +137,9 @@ Los benchmarks no reemplazan las pruebas. Primero se verifica la correctitud. Lu
 
 #### Errores frecuentes
 
-##### Comandos en la misma linea
+##### Comandos en la misma línea
 
-Cada instruccion de CMake debe estar bien separada.
+Cada instrucción de CMake debe estar bien separada.
 
 Correcto:
 
@@ -156,17 +156,17 @@ add_executable(demo_templates apps/demo_templates.cpp) target_link_libraries(dem
 
 ##### Olvidar registrar una prueba
 
-Compilar una prueba no basta. Tambien debe registrarse:
+Compilar una prueba no basta. También debe registrarse:
 
 ```cmake
 add_test(NAME test_simple_array COMMAND test_simple_array)
 ```
 
-##### Mezclar codigo de prueba con codigo principal
+##### Mezclar código de prueba con código principal
 
-Los archivos de `tests/` no deben formar parte de la biblioteca principal. Solo se usan para crear ejecutables de prueba.
+Los archivos de `tests/` no deben formar parte de la librería principal. Solo se usan para crear ejecutables de prueba.
 
-#### Validacion de esta fase
+#### Validación de esta fase
 
 ```bash
 rm -rf build_semana0
@@ -183,8 +183,8 @@ rm -rf build_semana0
 Al terminar esta fase, el estudiante debe entender:
 
 1. Que es un target en CMake.
-2. Como se declara una biblioteca.
+2. Como se declara una librería.
 3. Como se registran pruebas con CTest.
-4. Como se separan biblioteca, demostraciones, pruebas y benchmarks.
+4. Como se separan librería, demostraciones, pruebas y benchmarks.
 5. Como activar o desactivar demos y benchmarks.
-6. Por que las advertencias estrictas ayudan a mantener codigo de calidad.
+6. Por que las advertencias estrictas ayudan a mantener código de calidad.
