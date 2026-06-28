@@ -120,15 +120,15 @@ El reporte debe contener:
 4. Respuestas a las preguntas de la actividad.
 5. Observaciones sobre errores encontrados y como se corrigieron.
 
-#### Criterios de evaluacion
+#### Criterios de evaluación
 
 | Criterio | Puntaje |
 |---|---:|
-| Compilacion correcta con CMake | 4 |
+| Compilación correcta con CMake | 4 |
 | Ejecución correcta de CTest | 4 |
 | Limpieza del repositorio | 3 |
-| Comprension de pruebas y benchmarks | 3 |
-| Identificacion de material obligatorio y avanzado | 3 |
+| Comprensión de pruebas y benchmarks | 3 |
+| Identificación de material obligatorio y avanzado | 3 |
 | Reporte claro y verificable | 3 |
 
 #### Restricciones
@@ -140,8 +140,7 @@ El reporte debe contener:
 
 #### Extension Fase 0.2
 
-En esta fase se agrega una lectura obligatoria de C++17 minimo y tres demostraciones
-pequeñas. El estudiante debe revisar:
+En esta fase se agrega una lectura obligatoria de C++17 minimo y tres demostraciones pequeñas. El estudiante debe revisar:
 
 1. `lecturas/Lectura00-Cpp-Minimo-CC232.md`.
 2. `Proyecto0/apps/demo_const_refs.cpp`.
@@ -164,10 +163,10 @@ estructuras de rango.
 
 Agrega la lectura `Lectura01-Templates-Genericos.md`, ejecuta la demostración `demo_templates` y revisa la prueba `test_simple_array`. El estudiante debe explicar por que `SimpleArray<T>` define `operator[]` mutable y constante.
 
-### Extensión de la actividad: Sanitizers
+#### Extensión de la actividad: Sanitizers
 
-El estudiante debe compilar `Proyecto0` con `CC232_ENABLE_SANITIZERS=ON`, ejecutar las pruebas y explicar al menos un reporte producido por un demo intencionalmente incorrecto.
+El estudiante debe compilar `Proyecto0` con `CC232_ENABLE_SANITIZERS=ON`, ejecutar las pruebas y explicar al menos un reporte producido por una demostración intencionalmente incorrecta.
 
-### Extensión de la actividad: STL, iteradores y complejidad
+#### Extensión de la actividad: STL, iteradores y complejidad
 
-El estudiante debe ejecutar los demos de `std::vector`, invalidación de iteradores y algoritmos de STL. Luego debe explicar qué estructura o algoritmo usaría para tres cargas de trabajo distintas.
+El estudiante debe ejecutar las demostraciones de `std::vector`, invalidación de iteradores y algoritmos de STL. Luego debe explicar qué estructura o algoritmo usaría para tres cargas de trabajo distintas.
