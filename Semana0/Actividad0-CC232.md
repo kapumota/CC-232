@@ -160,3 +160,8 @@ estructuras de rango.
 4. Por que un destructor puede ejecutarse aunque no se llame de forma explicita.
 5. Como RAII ayuda a evitar fugas de recursos.
 
+
+
+#### Extension de Fase 0.3
+
+Agrega la lectura `Lectura01-Templates-Genericos.md`, ejecuta el demo `demo_templates` y revisa la prueba `test_simple_array`. El estudiante debe explicar por que `SimpleArray<T>` define `operator[]` mutable y constante.
