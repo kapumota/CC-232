@@ -8,7 +8,7 @@ El objetivo no es memorizar todos los comandos de CMake. El objetivo es entender
 
 #### Por que CMake en CC232
 
-En este curso cada semana contiene codigo C++17, pruebas, demostraciones y a veces benchmarks.
+En este curso cada semana contiene código C++17, pruebas, demostraciones y a veces benchmarks.
 
 CMake permite describir esa estructura de manera reproducible:
 
