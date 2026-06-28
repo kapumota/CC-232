@@ -73,7 +73,7 @@ void testSimpleArrayCopyAssignment() {
     right[0] = 100;
 
     cc232::test::expect(left.size() == 3, "la asignacion debe copiar el tamano");
-    cc232::test::expect(left[0] == 1, "la asignacion debe hacer copia profunda");
+    cc232::test::expect(left[0] == 1, "la asignacion debe hacer una copia profunda");
     cc232::test::expect(right[0] == 100, "el arreglo derecho debe seguir siendo modificable");
 }
 
