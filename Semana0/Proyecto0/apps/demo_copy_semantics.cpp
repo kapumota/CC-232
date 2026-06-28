@@ -36,7 +36,7 @@ void printDeepBox(const std::string& label, const DeepBox& box) {
 }  // namespace
 
 int main() {
-    std::cout << "Demostracion de copia superficial controlada\n";
+    std::cout << "Demostracion de una copia superficial controlada\n";
 
     SharedBox sharedOriginal{std::make_shared<std::vector<int>>(std::vector<int>{1, 2, 3})};
     SharedBox sharedCopy = sharedOriginal;
