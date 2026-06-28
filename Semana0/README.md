@@ -127,3 +127,7 @@ Esta fase agrega una lectura y ejemplos mínimos de templates. El objetivo es pr
 ### Fase 0.5: Sanitizers
 
 Esta fase agrega ASan y UBSan como herramientas obligatorias de depuración para detectar errores de memoria y comportamiento indefinido.
+
+### Fase 0.6: STL, iteradores y complejidad
+
+Esta fase organiza el uso de STL, iteradores, adaptadores, algoritmos estándar e invalidación de iteradores antes de iniciar estructuras de datos propias.

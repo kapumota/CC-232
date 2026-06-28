@@ -28,3 +28,7 @@ El material avanzado se usa cuando el estudiante ya puede:
 4. Cobertura con herramientas externas.
 5. Warnings dependientes de optimizacion.
 6. Experimentos comparativos con STL.
+
+| `Optimizacion-LTO-PGO.md` | Optimización LTO y PGO. |
+| `Profiling-gprof.md` | Profiling básico con gprof. |
+| `Cobertura-Avanzada.md` | Cobertura de líneas, ramas y funciones. |

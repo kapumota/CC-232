@@ -103,3 +103,44 @@ Estos programas están diseñados para producir reportes de sanitizer cuando se 
 rm -rf build_semana0_san
 rm -rf Semana0/Proyecto0/Testing
 ```
+
+### Fase 0.6: STL, iteradores y complejidad
+
+#### Validación de demos STL
+
+```bash
+rm -rf build_semana0
+
+cmake -S Semana0/Proyecto0 -B build_semana0
+cmake --build build_semana0
+ctest --test-dir build_semana0 --output-on-failure
+
+./build_semana0/demo_vector_growth
+./build_semana0/demo_iterator_invalidation
+./build_semana0/demo_stl_algorithms
+```
+
+#### Validación con sanitizers
+
+```bash
+rm -rf build_semana0_san
+
+cmake -S Semana0/Proyecto0 -B build_semana0_san \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCC232_ENABLE_SANITIZERS=ON
+
+cmake --build build_semana0_san
+ctest --test-dir build_semana0_san --output-on-failure
+
+./build_semana0_san/demo_vector_growth
+./build_semana0_san/demo_iterator_invalidation
+./build_semana0_san/demo_stl_algorithms
+```
+
+#### Limpieza
+
+```bash
+rm -rf build_semana0 build_semana0_san
+rm -rf Semana0/Proyecto0/build
+rm -rf Semana0/Proyecto0/Testing
+```
