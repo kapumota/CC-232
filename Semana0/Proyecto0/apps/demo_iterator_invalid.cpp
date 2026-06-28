@@ -2,7 +2,7 @@
 #include <vector>
 
 int main() {
-    std::cout << "Demo ASan: uso de iterador invalidado\n";
+    std::cout << "Demostracion ASan: uso de iterador invalidado\n";
 
     std::vector<int> values;
     values.reserve(1);
