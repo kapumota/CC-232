@@ -78,7 +78,7 @@ public:
 private:
     void validateIndex(std::size_t index) const {
         if (index >= size_) {
-            throw std::out_of_range("indice fuera de rango en SimpleArray");
+            throw std::out_of_range("Indice fuera de rango en SimpleArray");
         }
     }
 
