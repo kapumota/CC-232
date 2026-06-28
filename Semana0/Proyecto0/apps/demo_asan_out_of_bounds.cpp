@@ -2,7 +2,7 @@
 #include <vector>
 
 int main() {
-    std::cout << "Demo ASan: acceso fuera de rango en un vector\n";
+    std::cout << "Demostracion ASan: acceso fuera de rango en un vector\n";
 
     std::vector<int> values{10, 20, 30};
 
