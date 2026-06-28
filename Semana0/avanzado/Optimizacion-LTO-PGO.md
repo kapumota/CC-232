@@ -4,17 +4,15 @@
 
 Este documento separa los temas de optimización avanzada de la actividad base de Semana0.
 
-LTO y PGO son técnicas útiles, pero no deben mezclarse con la primera validación del estudiante.
-
 #### LTO
 
-LTO significa Link Time Optimization.
+LTO significa **Link Time Optimization**.
 
 Permite que el compilador optimice usando información de varias unidades de traducción durante la etapa de enlace.
 
 #### PGO
 
-PGO significa Profile Guided Optimization.
+PGO significa **Profile Guided Optimization**.
 
 Consiste en ejecutar el programa con cargas representativas, recolectar información de perfil y recompilar usando esa información.
 
