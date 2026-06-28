@@ -7,7 +7,7 @@ void printState(const std::vector<int>& values) {
 }
 
 int main() {
-    std::cout << "Demo STL: crecimiento de std::vector\n";
+    std::cout << "Demostración STL: crecimiento de std::vector\n";
 
     std::vector<int> values;
     printState(values);
