@@ -25,4 +25,4 @@ Esta carpeta contiene las lecturas obligatorias de preparación técnica para CC
 Las lecturas de esta carpeta se consideran parte del flujo obligatorio del curso.
 Las lecturas de `Semana0/avanzado` se usan después de que el estudiante ya puede compilar, probar y limpiar el proyecto base.
 
-| `Lectura01-Templates-Genericos.md` | Introduce funciones y clases genericas para estructuras de datos. |
+| `Lectura01-Templates-Genericos.md` | Introduce funciones y clases genéricas para estructuras de datos. |
