@@ -3,7 +3,7 @@
 #include <vector>
 
 int main() {
-    std::cout << "Demo STL: invalidación de iteradores en std::vector\n";
+    std::cout << "Demostracion STL: invalidación de iteradores en std::vector\n";
 
     std::vector<int> values;
     values.reserve(2);
