@@ -2,19 +2,20 @@
 
 #### Proposito
 
-Esta carpeta contiene las lecturas obligatorias de preparacion tecnica para CC232.
+Esta carpeta contiene las lecturas obligatorias de preparacion tecnica para
+CC232.
 
 #### Lecturas actuales
 
 | Archivo | Proposito |
 |---|---|
+| `Lectura00-Cpp-Minimo-CC232.md` | Introduce la base de C++17 necesaria antes de estructuras de datos. |
 | `Lectura03-Pruebas-Unitarias.md` | Introduce pruebas unitarias, `assert`, CTest y bibliotecas de prueba. |
 
 #### Lecturas previstas para fases posteriores
 
 | Lectura | Fase prevista |
 |---|---|
-| `Lectura00-Cpp-Minimo-CC232.md` | Fase 0.2 |
 | `Lectura01-Templates-Genericos.md` | Fase 0.3 |
 | `Lectura02-CMake-CTest-CC232.md` | Fase 0.4 |
 | `Lectura04-Sanitizers.md` | Fase 0.5 |
@@ -22,4 +23,6 @@ Esta carpeta contiene las lecturas obligatorias de preparacion tecnica para CC23
 
 #### Regla de uso
 
-Las lecturas de esta carpeta se consideran parte del flujo obligatorio del curso. Las lecturas de `Semana0/avanzado` se usan despues de que el estudiante ya puede compilar, probar y limpiar el proyecto base.
+Las lecturas de esta carpeta se consideran parte del flujo obligatorio del curso.
+Las lecturas de `Semana0/avanzado` se usan despues de que el estudiante ya puede
+compilar, probar y limpiar el proyecto base.

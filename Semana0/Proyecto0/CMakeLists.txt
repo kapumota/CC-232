@@ -36,6 +36,10 @@ if(BUILD_APPS)
 
     add_executable(demo_const_refs apps/demo_const_refs.cpp)
     target_link_libraries(demo_const_refs PRIVATE cc232_proyecto0)
+    add_executable(demo_copy_semantics apps/demo_copy_semantics.cpp)
+    target_link_libraries(demo_copy_semantics PRIVATE cc232_proyecto0)
+    add_executable(demo_raii apps/demo_raii.cpp)
+    target_link_libraries(demo_raii PRIVATE cc232_proyecto0)
 endif()
 
 if(BUILD_BENCHMARKS)
