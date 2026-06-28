@@ -137,3 +137,26 @@ El reporte debe contener:
 2. No subir carpetas `build` ni salidas temporales.
 3. No usar capturas de pantalla como sustituto de comandos y salidas.
 4. No entregar todo en un unico commit final si se trabaja en repositorio propio.
+
+#### Extension Fase 0.2
+
+En esta fase se agrega una lectura obligatoria de C++17 minimo y tres demos
+pequenos. El estudiante debe revisar:
+
+1. `lecturas/Lectura00-Cpp-Minimo-CC232.md`.
+2. `Proyecto0/apps/demo_const_refs.cpp`.
+3. `Proyecto0/apps/demo_copy_semantics.cpp`.
+4. `Proyecto0/apps/demo_raii.cpp`.
+
+El objetivo no es memorizar todo C++. El objetivo es reconocer las decisiones que
+apareceran despues en arreglos, listas, heaps, arboles, hashing, grafos y
+estructuras de rango.
+
+#### Preguntas de control de Fase 0.2
+
+1. Cuando conviene usar `const std::vector<int>&` en lugar de `std::vector<int>`.
+2. Por que `std::size_t` aparece al recorrer un `std::vector`.
+3. Que diferencia hay entre una copia compartida y una copia profunda.
+4. Por que un destructor puede ejecutarse aunque no se llame de forma explicita.
+5. Como RAII ayuda a evitar fugas de recursos.
+
