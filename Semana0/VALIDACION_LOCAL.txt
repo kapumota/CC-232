@@ -51,3 +51,25 @@ la documentacion del curso.
 
 Fase 0.3 templates:
 ./build_semana0/demo_templates
+
+
+Fase 0.4: CMake moderno y CTest
+
+Validacion normal:
+
+rm -rf build_semana0
+cmake -S Semana0/Proyecto0 -B build_semana0
+cmake --build build_semana0
+ctest --test-dir build_semana0 --output-on-failure
+
+Validacion sin demos ni benchmarks:
+
+rm -rf build_semana0_min
+cmake -S Semana0/Proyecto0 -B build_semana0_min -DBUILD_APPS=OFF -DBUILD_BENCHMARKS=OFF
+cmake --build build_semana0_min
+ctest --test-dir build_semana0_min --output-on-failure
+
+Limpieza:
+
+rm -rf build_semana0 build_semana0_min
+rm -rf Semana0/Proyecto0/Testing
