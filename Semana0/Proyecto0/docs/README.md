@@ -5,7 +5,7 @@ Proyecto independiente para arrancar un curso de estructuras de datos y algoritm
 1. compilar con **CMake**
 2. correr **tests**
 3. ejecutar un **micro-benchmark**
-4. practicar **referencias**, **const** y `std::vector`
+4. practicar **referencias**, **const** y `std::vector`.
 
 #### Qué contiene
 
