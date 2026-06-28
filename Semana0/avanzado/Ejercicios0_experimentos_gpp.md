@@ -111,4 +111,4 @@ gprof demo_gprof gmon.out
 2. Misma maquina.
 3. Mismo compilador.
 4. Varias repeticiones.
-5. Mismo entorno de ejecucion.
+5. Mismo entorno de ejecución.
