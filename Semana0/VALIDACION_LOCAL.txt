@@ -1,0 +1,68 @@
+### Validacion local de Semana0
+
+#### Objetivo
+
+Este archivo resume los comandos minimos para validar Semana0 despues de la reorganizacion documental de la Fase 0.1.
+
+#### Verificar rama
+
+```bash
+git branch --show-current
+pwd
+git status --short --untracked-files=all
+```
+
+La rama esperada es:
+
+```text
+fase-0-1-semana0-documentacion-base
+```
+
+#### Verificar estructura documental
+
+```bash
+find Semana0 -maxdepth 2 -type f | sort
+```
+
+Deben existir estos archivos:
+
+```text
+Semana0/README.md
+Semana0/Actividad0-CC232.md
+Semana0/VALIDACION_LOCAL.txt
+Semana0/lecturas/README.md
+Semana0/lecturas/Lectura03-Pruebas-Unitarias.md
+Semana0/avanzado/README.md
+Semana0/avanzado/Ejercicios0_experimentos_gpp.md
+Semana0/avanzado/INSTRUCCIONES_Ejercicios0_v4_2.md
+```
+
+#### Compilar Proyecto0
+
+```bash
+rm -rf build_semana0
+cmake -S Semana0/Proyecto0 -B build_semana0
+cmake --build build_semana0
+```
+
+#### Ejecutar pruebas
+
+```bash
+ctest --test-dir build_semana0 --output-on-failure
+```
+
+#### Limpiar artefactos generados
+
+```bash
+rm -rf build_semana0
+rm -rf Semana0/Proyecto0/Testing
+rm -rf Semana0/ejercicios0_out
+```
+
+#### Revisar estado de Git
+
+```bash
+git status --short --untracked-files=all
+```
+
+Solo deben aparecer cambios documentales dentro de `Semana0`.
