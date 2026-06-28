@@ -2,7 +2,7 @@
 
 #### Proposito
 
-Las pruebas unitarias permiten verificar que una funcion, clase o modulo cumple su contrato en casos normales y casos borde.
+Las pruebas unitarias permiten verificar que una funcion, clase o modulo cumple su contrato en casos normales y casos borde o frontera.
 
 En CC232, las pruebas son parte del diseño de una estructura de datos. No son un paso decorativo al final.
 
