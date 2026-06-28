@@ -48,6 +48,6 @@ int main() {
     runScopeExample();
     std::cout << "Despues de salir del alcance\n";
 
-    std::cout << "RAII permite asociar recursos con la vida de un objeto.\n";
+    std::cout << "RAII vincula recursos al ciclo de vida de objetos: se adquieren al construir y liberan al destruir..\n";
     return 0;
 }
