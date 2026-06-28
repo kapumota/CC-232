@@ -193,7 +193,7 @@ Estos temas aparecen en:
 6. Estructuras de rango.
 7. Proyecto integrador y benchmarking.
 
-#### Ejercicios de lectura
+#### Ejercicios de la lectura
 
 1. Explica por qué `std::vector` tiene buena localidad de memoria.
 2. Indica cuándo preferirías `std::deque` sobre `std::vector`.
