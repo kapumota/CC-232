@@ -12,7 +12,7 @@ void printValues(const std::vector<int>& values) {
 }
 
 int main() {
-    std::cout << "Demo STL: algoritmos y adaptadores\n";
+    std::cout << "Demostracion STL: algoritmos y adaptadores\n";
 
     std::vector<int> values{7, 2, 9, 1, 5, 4, 8};
 
