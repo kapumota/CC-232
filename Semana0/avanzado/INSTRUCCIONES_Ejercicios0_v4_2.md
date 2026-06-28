@@ -91,6 +91,6 @@ rm -rf ejercicios0_out
 rm -f demo_* stl_demo tests_cov *.gcda *.gcno *.gcov gmon.out
 ```
 
-#### Recomendacion docente
+#### Recomendacion
 
 Primero se debe validar `Proyecto0` con CMake y CTest. Luego se ejecutan estos experimentos avanzados.
