@@ -27,62 +27,21 @@ ctest --test-dir build_semana0 --output-on-failure
 ./build_semana0/demo_raii
 ```
 
-En Windows con generadores multiconfiguración, los ejecutables pueden quedar en
-una carpeta como `build_semana0/Debug`.
+En Windows con generadores multiconfiguración, los ejecutables pueden quedar en una carpeta como `build_semana0/Debug`.
 
-#### Limpiar artefactos
-
-```bash
-rm -rf build_semana0
-rm -rf Semana0/Proyecto0/Testing
-rm -rf Semana0/ejercicios0_out
-```
-
-#### Validación de documentación
-
-```bash
-grep -RIn "====\|—\|→" Semana0/*.md Semana0/lecturas/*.md Semana0/avanzado/*.md || true
-```
-
-El comando anterior ayuda a encontrar separadores o símbolos que no se quieren en
-la documentación del curso.
-
-### Fase 0.3: Templates
-
-#### Ejecutar demo de templates
+#### Validación de templates
 
 ```bash
 ./build_semana0/demo_templates
 ```
 
-### Fase 0.4: CMake moderno y CTest
-
-#### Validación normal
+#### Validación de STL
 
 ```bash
-rm -rf build_semana0
-cmake -S Semana0/Proyecto0 -B build_semana0
-cmake --build build_semana0
-ctest --test-dir build_semana0 --output-on-failure
+./build_semana0/demo_vector_growth
+./build_semana0/demo_iterator_invalidation
+./build_semana0/demo_stl_algorithms
 ```
-
-#### Validación sin demos ni benchmarks
-
-```bash
-rm -rf build_semana0_min
-cmake -S Semana0/Proyecto0 -B build_semana0_min -DBUILD_APPS=OFF -DBUILD_BENCHMARKS=OFF
-cmake --build build_semana0_min
-ctest --test-dir build_semana0_min --output-on-failure
-```
-
-#### Limpieza
-
-```bash
-rm -rf build_semana0 build_semana0_min
-rm -rf Semana0/Proyecto0/Testing
-```
-
-### Fase 0.5: Sanitizers
 
 #### Validación con ASan y UBSan
 
@@ -107,50 +66,53 @@ Estos programas están diseñados para producir reportes de sanitizer cuando se 
 ./build_semana0_san/demo_iterator_invalid
 ```
 
-#### Limpieza
+#### Benchmark simple
 
 ```bash
-rm -rf build_semana0_san
-rm -rf Semana0/Proyecto0/Testing
+./build_semana0/bench_vector_growth
 ```
 
-### Fase 0.6: STL, iteradores y complejidad
-
-#### Validación de demos STL
+Si existen otros benchmarks, también se pueden ejecutar:
 
 ```bash
-rm -rf build_semana0
-
-cmake -S Semana0/Proyecto0 -B build_semana0
-cmake --build build_semana0
-ctest --test-dir build_semana0 --output-on-failure
-
-./build_semana0/demo_vector_growth
-./build_semana0/demo_iterator_invalidation
-./build_semana0/demo_stl_algorithms
+./build_semana0/bench_vector_ops
+./build_semana0/bench_cache_effects
 ```
 
-#### Validación con sanitizers
+#### Validación sin demos ni benchmarks
 
 ```bash
-rm -rf build_semana0_san
+rm -rf build_semana0_min
 
-cmake -S Semana0/Proyecto0 -B build_semana0_san \
-  -DCMAKE_BUILD_TYPE=Debug \
-  -DCC232_ENABLE_SANITIZERS=ON
+cmake -S Semana0/Proyecto0 -B build_semana0_min \
+  -DBUILD_APPS=OFF \
+  -DBUILD_BENCHMARKS=OFF
 
-cmake --build build_semana0_san
-ctest --test-dir build_semana0_san --output-on-failure
-
-./build_semana0_san/demo_vector_growth
-./build_semana0_san/demo_iterator_invalidation
-./build_semana0_san/demo_stl_algorithms
+cmake --build build_semana0_min
+ctest --test-dir build_semana0_min --output-on-failure
 ```
+
+#### Validación de documentación
+
+```bash
+grep -RIn "====\|—\|→" Semana0/*.md Semana0/lecturas/*.md Semana0/avanzado/*.md || true
+```
+
+El comando anterior ayuda a encontrar separadores o símbolos que no se quieren en la documentación del curso.
 
 #### Limpieza
 
 ```bash
-rm -rf build_semana0 build_semana0_san
+rm -rf build_semana0 build_semana0_san build_semana0_min
 rm -rf Semana0/Proyecto0/build
 rm -rf Semana0/Proyecto0/Testing
+rm -rf Semana0/ejercicios0_out
 ```
+
+#### Verificación antes del commit
+
+```bash
+git status --short --untracked-files=all
+```
+
+No deben aparecer carpetas de compilación ni archivos generados por CMake.
