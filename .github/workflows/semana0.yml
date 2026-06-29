@@ -1,0 +1,154 @@
+name: Semana0
+
+on:
+  pull_request:
+    paths:
+      - "Semana0/**"
+      - ".github/workflows/semana0.yml"
+      - ".gitignore"
+  push:
+    branches:
+      - main
+    paths:
+      - "Semana0/**"
+      - ".github/workflows/semana0.yml"
+      - ".gitignore"
+
+jobs:
+  validar-semana0:
+    name: Validar Semana0
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Mostrar herramientas
+        run: |
+          cmake --version
+          g++ --version
+
+      - name: Revisar documentación
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import sys
+
+          rutas = []
+          rutas.extend(Path("Semana0").glob("*.md"))
+          rutas.extend(Path("Semana0/lecturas").glob("*.md"))
+          rutas.extend(Path("Semana0/avanzado").glob("*.md"))
+
+          patrones = [
+              "========",
+              "—",
+              "→",
+              "😀",
+              "🚀",
+          ]
+
+          errores = []
+          for ruta in rutas:
+              texto = ruta.read_text(encoding="utf-8")
+              for patron in patrones:
+                  if patron in texto:
+                      errores.append(f"{ruta}: contiene símbolo no permitido {patron!r}")
+
+          for ruta in rutas:
+              lineas = ruta.read_text(encoding="utf-8").splitlines()
+              for numero, linea in enumerate(lineas, start=1):
+                  if linea.startswith("# ") or linea.startswith("## "):
+                      errores.append(f"{ruta}:{numero}: usar títulos con ### o subtítulos con ####")
+
+          if errores:
+              for error in errores:
+                  print(error)
+              sys.exit(1)
+
+          print("Documentación de Semana0 revisada correctamente.")
+          PY
+
+      - name: Configurar compilación normal
+        run: |
+          cmake -S Semana0/Proyecto0 -B build_semana0
+
+      - name: Compilar versión normal
+        run: |
+          cmake --build build_semana0
+
+      - name: Ejecutar pruebas normales
+        run: |
+          ctest --test-dir build_semana0 --output-on-failure
+
+      - name: Ejecutar demos seguros
+        run: |
+          ./build_semana0/demo_line_stats
+          ./build_semana0/demo_const_refs
+          if [ -x ./build_semana0/demo_copy_semantics ]; then ./build_semana0/demo_copy_semantics; fi
+          if [ -x ./build_semana0/demo_raii ]; then ./build_semana0/demo_raii; fi
+          if [ -x ./build_semana0/demo_templates ]; then ./build_semana0/demo_templates; fi
+          if [ -x ./build_semana0/demo_vector_growth ]; then ./build_semana0/demo_vector_growth; fi
+          if [ -x ./build_semana0/demo_iterator_invalidation ]; then ./build_semana0/demo_iterator_invalidation; fi
+          if [ -x ./build_semana0/demo_stl_algorithms ]; then ./build_semana0/demo_stl_algorithms; fi
+
+      - name: Configurar compilación mínima
+        run: |
+          cmake -S Semana0/Proyecto0 -B build_semana0_min \
+            -DBUILD_APPS=OFF \
+            -DBUILD_BENCHMARKS=OFF
+
+      - name: Compilar versión mínima
+        run: |
+          cmake --build build_semana0_min
+
+      - name: Ejecutar pruebas en versión mínima
+        run: |
+          ctest --test-dir build_semana0_min --output-on-failure
+
+      - name: Configurar compilación con sanitizers
+        run: |
+          cmake -S Semana0/Proyecto0 -B build_semana0_san \
+            -DCMAKE_BUILD_TYPE=Debug \
+            -DCC232_ENABLE_SANITIZERS=ON
+
+      - name: Compilar con sanitizers
+        run: |
+          cmake --build build_semana0_san
+
+      - name: Ejecutar pruebas con sanitizers
+        run: |
+          ctest --test-dir build_semana0_san --output-on-failure
+
+      - name: Confirmar que no se versionan artefactos generados
+        run: |
+          python3 <<'PY'
+          import subprocess
+          import sys
+
+          salida = subprocess.check_output(
+              ["git", "ls-files"],
+              text=True,
+          ).splitlines()
+
+          prohibidos = [
+              "build_semana0/",
+              "build_semana0_san/",
+              "build_semana0_min/",
+              "Semana0/Proyecto0/build/",
+              "Semana0/Proyecto0/Testing/",
+          ]
+
+          errores = []
+          for archivo in salida:
+              for prefijo in prohibidos:
+                  if archivo.startswith(prefijo):
+                      errores.append(archivo)
+
+          if errores:
+              print("Se encontraron artefactos generados versionados:")
+              for error in errores:
+                  print(error)
+              sys.exit(1)
+
+          print("No se encontraron artefactos generados versionados.")
+          PY
