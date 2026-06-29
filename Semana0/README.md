@@ -134,3 +134,7 @@ Esta fase organiza el uso de STL, iteradores, adaptadores, algoritmos estándar 
 #### Fase 0.7: Actividad, rúbrica y validación final
 
 Esta fase cierra Semana0 como prerrequisito técnico formal del curso. Agrega la actividad final, los ejercicios, la rúbrica de 20 puntos y la validación local consolidada.
+
+### Fase 0.8: Integración con CI
+
+Esta fase agrega validación automática con GitHub Actions para compilar Semana0, ejecutar pruebas, validar sanitizers, revisar documentación y evitar artefactos generados versionados.

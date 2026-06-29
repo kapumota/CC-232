@@ -116,3 +116,87 @@ git status --short --untracked-files=all
 ```
 
 No deben aparecer carpetas de compilación ni archivos generados por CMake.
+
+### Fase 0.8: Integración con CI
+
+#### Objetivo
+
+Esta fase agrega validación automática para Semana0 mediante GitHub Actions.
+
+El CI verifica:
+
+1. Compilación normal.
+2. Pruebas con CTest.
+3. Demos seguros.
+4. Compilación mínima sin demos ni benchmarks.
+5. Compilación con sanitizers.
+6. Pruebas con sanitizers.
+7. Revisión de documentación.
+8. Ausencia de artefactos generados versionados.
+
+#### Validación local equivalente
+
+```bash
+rm -rf build_semana0 build_semana0_min build_semana0_san
+
+cmake -S Semana0/Proyecto0 -B build_semana0
+cmake --build build_semana0
+ctest --test-dir build_semana0 --output-on-failure
+
+cmake -S Semana0/Proyecto0 -B build_semana0_min \
+  -DBUILD_APPS=OFF \
+  -DBUILD_BENCHMARKS=OFF
+
+cmake --build build_semana0_min
+ctest --test-dir build_semana0_min --output-on-failure
+
+cmake -S Semana0/Proyecto0 -B build_semana0_san \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCC232_ENABLE_SANITIZERS=ON
+
+cmake --build build_semana0_san
+ctest --test-dir build_semana0_san --output-on-failure
+```
+
+#### Revisión documental equivalente
+
+```bash
+python3 - <<'PY'
+from pathlib import Path
+import sys
+
+rutas = []
+rutas.extend(Path("Semana0").glob("*.md"))
+rutas.extend(Path("Semana0/lecturas").glob("*.md"))
+rutas.extend(Path("Semana0/avanzado").glob("*.md"))
+
+patrones = ["========", "—", "→", "😀", "🚀"]
+errores = []
+
+for ruta in rutas:
+    texto = ruta.read_text(encoding="utf-8")
+    for patron in patrones:
+        if patron in texto:
+            errores.append(f"{ruta}: contiene símbolo no permitido {patron!r}")
+
+for ruta in rutas:
+    for numero, linea in enumerate(ruta.read_text(encoding="utf-8").splitlines(), start=1):
+        if linea.startswith("# ") or linea.startswith("## "):
+            errores.append(f"{ruta}:{numero}: usar títulos con ### o subtítulos con ####")
+
+if errores:
+    for error in errores:
+        print(error)
+    sys.exit(1)
+
+print("Documentación revisada correctamente.")
+PY
+```
+
+#### Limpieza
+
+```bash
+rm -rf build_semana0 build_semana0_min build_semana0_san
+rm -rf Semana0/Proyecto0/build
+rm -rf Semana0/Proyecto0/Testing
+```
