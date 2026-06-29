@@ -18,7 +18,7 @@ cmake --build build_semana0
 ctest --test-dir build_semana0 --output-on-failure
 ```
 
-#### Ejecutar demos principales
+#### Ejecutar demostraciones principales
 
 ```bash
 ./build_semana0/demo_line_stats
@@ -79,7 +79,7 @@ Si existen otros benchmarks, también se pueden ejecutar:
 ./build_semana0/bench_cache_effects
 ```
 
-#### Validación sin demos ni benchmarks
+#### Validación sin demostraciones ni benchmarks
 
 ```bash
 rm -rf build_semana0_min
