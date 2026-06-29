@@ -62,7 +62,7 @@ El estudiante debe indicar:
 
 #### Parte 3: C++ básico
 
-Revisa las demos principales:
+Revisa las demostraciones principales:
 
 ```bash
 ./build_semana0/demo_line_stats
@@ -143,7 +143,7 @@ cmake --build build_semana0_san
 ctest --test-dir build_semana0_san --output-on-failure
 ```
 
-Ejecuta manualmente los demos incorrectos:
+Ejecuta manualmente las demostraciones incorrectas:
 
 ```bash
 ./build_semana0_san/demo_asan_out_of_bounds
@@ -156,7 +156,7 @@ El estudiante debe explicar:
 1. Qué error detecta ASan.
 2. Qué error detecta UBSan.
 3. En qué archivo y línea aparece el error.
-4. Por qué estos demos no deben registrarse como pruebas automáticas de CTest.
+4. Por qué estas demostraciones no deben registrarse como pruebas automáticas de CTest.
 
 #### Parte 7: STL, iteradores y complejidad
 
