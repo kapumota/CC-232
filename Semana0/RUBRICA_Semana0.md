@@ -1,4 +1,4 @@
-### Rúbrica de Semana0
+### Rúbrica de la Semana0
 
 #### Propósito
 
