@@ -131,6 +131,6 @@ Esta fase agrega ASan y UBSan como herramientas obligatorias de depuración para
 
 Esta fase organiza el uso de STL, iteradores, adaptadores, algoritmos estándar e invalidación de iteradores antes de iniciar estructuras de datos propias.
 
-### Fase 0.7: Actividad, rúbrica y validación final
+#### Fase 0.7: Actividad, rúbrica y validación final
 
 Esta fase cierra Semana0 como prerrequisito técnico formal del curso. Agrega la actividad final, los ejercicios, la rúbrica de 20 puntos y la validación local consolidada.
